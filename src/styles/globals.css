@@ -120,3 +120,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+html, body {
+  direction: rtl;
+  text-align: right;
+  font-family: Tahoma, "Vazirmatn", sans-serif; /* you can use a Persian-friendly font */
+}
+
