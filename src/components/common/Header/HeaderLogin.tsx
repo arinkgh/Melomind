@@ -1,9 +1,12 @@
 import React from 'react'
+import { EnterBtn } from '../Butttons/EnterBtn'
+import { ReservationBn } from '../Butttons/ReservationBtn'
 
 const HeaderLogin = () => {
   return (
-    <div className='border w-[40%] flex flex-row justify-between items-center'>
-      11
+    <div className='border w-[30%] flex flex-row gap-2 items-center'>
+      <EnterBtn/>
+      <ReservationBn/>
     </div>
   )
 }
