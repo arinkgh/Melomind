@@ -4,7 +4,7 @@ import { ReservationBn } from '../Butttons/ReservationBtn'
 
 const HeaderLogin = () => {
   return (
-    <div className='border w-[30%] flex flex-row gap-2 items-center'>
+    <div className='w-[30%] flex flex-row gap-2 items-center justify-center'>
       <EnterBtn/>
       <ReservationBn/>
     </div>

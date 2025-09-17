@@ -4,7 +4,7 @@ const page = () => {
   return (
     <div className='grid'>
       <main className='justify-center'>
-fghfghfg
+        sddff
       </main>
     </div>
   )
