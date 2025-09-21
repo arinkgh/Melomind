@@ -1,12 +1,12 @@
 import React from "react";
-import HeroSvg from "../../../public/Images/BG.svg";
+import HeroSvg from "../../../../public/Images/BG.svg";
 import Image from "next/image";
-import check from "../../../public/Images/Check.svg";
-import interfaced from "../../../public/Images/Interface.svg";
+import check from "../../../../public/Images/Check.svg";
+import interfaced from "../../../../public/Images/Interface.svg";
 
 const HeroImg = () => {
   return (
-    <div className="border h-[420px] w-[40%] relative">
+    <div className="h-[420px] w-[40%] relative">
       <Image src={HeroSvg} alt="#" className="w-[50%] h-[80%] m-auto" />
       {/* items */}
       <div className="bg-white shadow h-[150px] w-[165px] rounded-[20px] absolute bottom-0 right-16 flex flex-col gap-1.5 pr-6">
