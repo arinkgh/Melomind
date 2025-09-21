@@ -15,10 +15,11 @@ const HeaderItems = () => {
       <Image
         src = {logo}
         alt = "logo"
-        // className='border'
+        className='lg:w-[150px] lg:h-[150px] md:w-[100px] md:h-[100px] md:block sm:hidden'
       />
       {/* items */}
-      <div className='flex  text-[18px] gap-14 font-bold flex-row justify-between items-center whitespace-nowrap text-[#105870]'>
+      <div className='flex font-bold flex-row justify-between items-center whitespace-nowrap text-[#105870] 
+      lg:text-[18px] lg:gap-14  sm:text-[14px] sm:gap-10'>
         {items.map((item, index) => (
             <li
             key={index}

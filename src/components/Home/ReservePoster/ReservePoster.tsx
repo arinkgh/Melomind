@@ -3,7 +3,7 @@ import React from 'react'
 
 const ReservePoster = () => {
   return (
-    <div className='container mx-auto rounded-[20px] bg-[#F1F7FA] mt-40 h-[350px] flex flex-row justify-around items-center'>
+    <div className='container mx-auto rounded-[20px] bg-[#F1F7FA] mt-40 h-[350px] flex flex-row justify-around items-center '>
       {/* text */}
       <div className='w-1/2 h-[60%] flex flex-col items-start gap-4'>
         <p className='text-2xl font-semibold text-[#76C144]'>زندگی را آسان کن!</p>
