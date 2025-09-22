@@ -1,3 +1,4 @@
+import Footer from '@/components/common/Footer/Footer'
 import ExpertServices from '@/components/Home/ExpertServices/ExpertServices'
 import Hero from '@/components/Home/Hero/Hero'
 import MedicalServices from '@/components/Home/MedicalServices/MedicalServices'
@@ -13,6 +14,7 @@ const page = () => {
       <ExpertServices/>
       <Questions/>
       <ReservePoster/>
+      <Footer/>
     </div>
   )
 }
