@@ -3,7 +3,7 @@ import { ReservationBn } from '../../common/Butttons/ReservationBtn'
 
 const HeroText = () => {
   return (
-    <div className='lg:h-[380px] md:h-[340px] w-[40%] flex flex-col justify-between '>
+    <div className='lg:h-[380px] md:h-[340px] w-[80%] md:w-[40%] flex flex-col justify-between gap-6 md:gap-0 '>
       <p className='text-[#80C244] lg:text-2xl text-[18px]  font-semibold'>
         متخصص اعصاب و روان (روانپزشک)
       </p>
