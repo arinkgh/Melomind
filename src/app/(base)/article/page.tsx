@@ -1,4 +1,5 @@
-import SearchArticle from '@/components/Article/SearchArticle'
+import NewArticles from '@/components/Article/NewArticles/NewArticles'
+import SearchArticle from '@/components/Article/Search/SearchArticle'
 import Slider from '@/components/Article/Slider'
 import React from 'react'
 
@@ -7,6 +8,7 @@ const page = () => {
     <div>
       <Slider/>
       <SearchArticle/>
+      <NewArticles/>
     </div>
   )
 }

@@ -1,0 +1,9 @@
+.embla { max-width: 100%; margin: auto; --slide-height: 18rem; --slide-spacing: 1rem; --slide-size: 50%; }
+.embla__viewport { overflow: hidden; }
+.embla__container { display: flex; margin-left: calc(var(--slide-spacing) * -1); }
+.embla__slide { flex: 0 0 var(--slide-size); padding-left: var(--slide-spacing); min-width: 0; }
+.embla__slide__card { height: var(--slide-height); }
+.embla__controls { display: flex; flex-direction: column; align-items: flex-end; }
+.embla__buttons button { background: #eee; border-radius: 50%; width: 3rem; height: 3rem; }
+.embla__dot { width: 1rem; height: 1rem; border-radius: 50%; background: #ccc; }
+.embla__dot--selected { background: #105870; }
