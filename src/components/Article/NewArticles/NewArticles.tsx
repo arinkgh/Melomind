@@ -1,16 +1,16 @@
-import React from 'react'
-import ArticleSlider from './ArticleSlider'
-import News from './News'
+import React from "react";
+import ArticleSlider from "./ArticleSlider";
+import News from "./News";
 
 const NewArticles = () => {
   return (
-    <div className='border container mx-auto h-[530px] mt-10 flex flex-row justify-between'>
+    <div className="container mx-auto mt-10 flex flex-col lg:flex-row gap-8">
       {/* articles */}
-      <ArticleSlider/>
+      <ArticleSlider />
       {/* news */}
-      <News/>
+      <News />
     </div>
-  )
-}
+  );
+};
 
-export default NewArticles
+export default NewArticles;
