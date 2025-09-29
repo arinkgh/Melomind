@@ -173,6 +173,19 @@ html, body {
   }
 }
 
+@layer utilities {
+  .bg-half-svg {
+    background-image:
+      url('/Images/bookingbg.svg'),
+      linear-gradient(to bottom, #AFED65, #80C244);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
+  }
+}
+
+
+
 
 .mySwiper {
   width: 100%;
