@@ -6,31 +6,32 @@ import interfaced from "../../../../public/Images/Interface.svg";
 
 const HeroImage = () => {
   return (
-      <div
-      className="hidden md:block md:h-[420px] md:w-[60%] lg:w-[40%] relative"
-    >
-        {/* Hero background image */}
-        <Image
-          src={HeroSvg}
-          alt="hero background"
-          className="w-[60%] h-[80%] m-auto object-contain"
-        />
+    <div className="w-full max-w-[500px] mx-auto relative hidden lg:block">
+      {/* Hero background image */}
+      <Image
+        src={HeroSvg}
+        alt="Hero background"
+        className="w-full h-auto max-h-[400px] object-contain"
+      />
 
-        {/* Floating boxes - only visible on lg */}
-        <div className="hidden lg:flex flex-col gap-1.5 pr-6 bg-white shadow-md h-[150px] w-[165px] rounded-[20px] absolute bottom-0 right-16">
-          <Image src={check} alt="check" className="w-12 h-12 pt-1.5" />
-          <p className="text-[#105870] font-semibold text-[16px]">سابقه کار و تجربه</p>
-          <p className="text-[#80C244] font-bold text-[24px]">+۱۰ سال</p>
-        </div>
-
-        <div className="hidden lg:flex flex-col gap-1.5 pr-6 bg-white shadow-md h-[150px] w-[165px] rounded-[20px] absolute bottom-8 left-16">
-          <Image src={interfaced} alt="interface" className="w-12 h-12 pt-1.5" />
-          <p className="text-[#105870] font-semibold text-[16px]">رضایت مراجعین</p>
-          <p className="text-[#80C244] font-bold text-[24px]">۹۸ درصد</p>
-        </div>
+      {/* Floating boxes */}
+      <div className="flex flex-col gap-2 p-4 bg-white shadow-md w-40 sm:w-44 rounded-xl absolute bottom-0 right-4 sm:right-6">
+        <Image src={check} alt="Check" className="w-10 h-10" />
+        <p className="text-[#105870] font-semibold text-sm sm:text-base">
+          سابقه کار و تجربه
+        </p>
+        <p className="text-[#80C244] font-bold text-lg sm:text-xl">+۱۰ سال</p>
       </div>
 
-  )
-};  
+      <div className="flex flex-col gap-2 p-4 bg-white shadow-md w-40 sm:w-44 rounded-xl absolute bottom-8 left-4 sm:left-6">
+        <Image src={interfaced} alt="Interface" className="w-10 h-10" />
+        <p className="text-[#105870] font-semibold text-sm sm:text-base">
+          رضایت مراجعین
+        </p>
+        <p className="text-[#80C244] font-bold text-lg sm:text-xl">۹۸ درصد</p>
+      </div>
+    </div>
+  );
+};
 
 export default HeroImage;

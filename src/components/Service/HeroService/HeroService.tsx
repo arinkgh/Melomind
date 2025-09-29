@@ -4,13 +4,15 @@ import HeroText from './HeroText'
 
 const HeroService = () => {
   return (
-    <div 
-    // className=' container mx-auto  flex  flex-row md:justify-between justify-center items-center mt-22'
-    className="container mx-auto flex flex-col md:flex-row items-center justify-between mt-10 md:mt-20 gap-10">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 py-8 sm:py-12 lg:py-16">
       {/* Text */}
-      <HeroText/>
+      <div className="w-full lg:w-1/2 order-2 lg:order-1">
+        <HeroText />
+      </div>
       {/* Image */}
-      <HeroImage/>
+      <div className="w-full lg:w-1/2 order-1 lg:order-2">
+        <HeroImage />
+      </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import HeroService from './HeroService/HeroService'
 
 const Service = () => {
   return (
-    <div className='border container mx-auto flex flex-col justify-around'>
+    <div className=' container mx-auto flex flex-col justify-around'>
       <HeroService/>
     </div>
   )
