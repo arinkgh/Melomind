@@ -11,7 +11,7 @@ const HeroImage = () => {
       <Image
         src={HeroSvg}
         alt="Hero background"
-        className="w-full h-auto max-h-[400px] object-contain"
+        className="w-full h-auto max-h-[500px] object-contain"
       />
 
       {/* Floating boxes */}
