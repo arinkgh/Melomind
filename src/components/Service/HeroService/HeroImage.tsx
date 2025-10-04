@@ -17,18 +17,18 @@ const HeroImage = () => {
       {/* Floating boxes */}
       <div className="flex flex-col gap-2 p-4 bg-white shadow-md w-40 sm:w-44 rounded-xl absolute bottom-0 right-4 sm:right-6">
         <Image src={check} alt="Check" className="w-10 h-10" />
-        <p className="text-[#105870] font-semibold text-sm sm:text-base">
+        <p className="text-primary font-semibold text-sm sm:text-base">
           سابقه کار و تجربه
         </p>
-        <p className="text-[#80C244] font-bold text-lg sm:text-xl">+۱۰ سال</p>
+        <p className="text-secondary font-bold text-lg sm:text-2xl">+۱۰ سال</p>
       </div>
 
       <div className="flex flex-col gap-2 p-4 bg-white shadow-md w-40 sm:w-44 rounded-xl absolute bottom-8 left-4 sm:left-6">
         <Image src={interfaced} alt="Interface" className="w-10 h-10" />
-        <p className="text-[#105870] font-semibold text-sm sm:text-base">
+        <p className="text-primary font-semibold text-sm sm:text-base">
           رضایت مراجعین
         </p>
-        <p className="text-[#80C244] font-bold text-lg sm:text-xl">۹۸ درصد</p>
+        <p className="text-secondary font-bold text-lg sm:text-2xl">۹۸ درصد</p>
       </div>
     </div>
   );

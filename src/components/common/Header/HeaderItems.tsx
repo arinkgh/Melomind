@@ -18,12 +18,12 @@ const HeaderItems = () => {
         className='lg:w-[150px] lg:h-[150px] md:w-[100px] md:h-[100px] md:block sm:hidden'
       />
       {/* items */}
-      <div className='flex font-bold flex-row justify-between items-center whitespace-nowrap text-[#105870] 
+      <div className='flex font-bold flex-row justify-between items-center whitespace-nowrap text-primary 
       lg:text-[18px] lg:gap-14  sm:text-[14px] sm:gap-10'>
         {items.map((item, index) => (
             <li
             key={index}
-            className='hover:text-[#80C244] transition  list-none'
+            className='hover:text-secondary transition  list-none'
             >
                 <Link href={item.link}>{item.title}</Link>
             </li>

@@ -15,7 +15,7 @@ const AdditionalText = () => {
         <AdditionalDescP1 />
       </div>
       {/* Part 2 */}
-      <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-20">
+      <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10">
         <AdditionalDescP2 />
         <AdditionalImageP2/>
       </div>

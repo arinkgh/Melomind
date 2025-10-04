@@ -70,10 +70,10 @@ const EmblaCarousel: React.FC<Props> = ({ slides }) => {
                 alt={slide.title}
                 className="w-full h-auto rounded-lg"
               />
-              <h3 className="text-[#105870] font-bold text-lg sm:text-2xl md:text-3xl">
+              <h3 className="text-primary font-bold text-lg sm:text-2xl md:text-3xl">
                 {slide.title}
               </h3>
-              <p className="text-[#105870] text-sm sm:text-base md:text-lg">
+              <p className="text-primary text-sm sm:text-base md:text-lg">
                 {slide.description}
               </p>
             </div>

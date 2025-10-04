@@ -16,10 +16,10 @@ const AdditionalImageP1 = () => {
         {/* Floating box */}
         <div className="flex flex-col gap-2 p-4 bg-white shadow-md w-40 sm:w-44 rounded-xl absolute -bottom-2 left-4 sm:left-6">
           <Image src={check} alt="Interface" className="w-10 h-10" />
-          <p className="text-[#105870] font-semibold text-sm sm:text-base">
+          <p className="text-primary font-semibold text-sm sm:text-base">
             مزیت‌های ملومایند
           </p>
-          <p className="text-[#80C244] font-extrabold text-xl sm:text-2xl">
+          <p className="text-secondary font-extrabold text-xl sm:text-2xl">
             +۱۰ مزایا
           </p>
         </div>

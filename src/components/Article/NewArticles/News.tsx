@@ -40,10 +40,10 @@ const News = () => {
 
             {/* Text */}
             <div className="flex flex-col w-[70%]">
-              <p className="text-[#105870] text-base sm:text-lg md:text-xl font-bold">
+              <p className="text-primary text-base sm:text-lg md:text-xl font-bold">
                 {item.title}
               </p>
-              <span className="text-[#105870] text-sm sm:text-base md:text-lg">
+              <span className="text-primary text-sm sm:text-base md:text-lg">
                 {item.desc}
               </span>
             </div>

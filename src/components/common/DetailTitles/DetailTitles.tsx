@@ -12,7 +12,7 @@ const DetailTitles = ({ subtitle, title }: { subtitle: string; title: string }) 
       <span className="text-[#76C144] text-lg sm:text-xl md:text-2xl font-semibold">
         {subtitle}
       </span>
-      <h3 className="text-[#105870] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black">
+      <h3 className="text-primary text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black">
         {title}
       </h3>
     </div>

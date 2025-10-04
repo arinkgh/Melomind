@@ -43,7 +43,7 @@ const BookingService = () => {
     <div className="container mx-auto rounded-[20px] mt-40 bg-half-svg h-auto py-16 flex flex-col items-center justify-center gap-10">
       {/* Title */}
       <div className="flex flex-col items-center justify-center text-center px-4">
-        <p className="text-[#105870] text-lg md:text-xl font-semibold">
+        <p className="text-primary text-lg md:text-xl font-semibold">
           مزیت‌ها و فواید ملومایند
         </p>
         <h3 className="text-white font-extrabold text-3xl md:text-5xl mt-2">
@@ -52,7 +52,7 @@ const BookingService = () => {
       </div>
 
       {/* Cards */}
-      <div className="w-full flex flex-wrap justify-center gap-6 px-4">
+      <div className="w-full flex flex-wrap justify-center gap-4 px-4">
         {cards.map((card, index) => (
           <div
             key={index}
@@ -65,11 +65,11 @@ const BookingService = () => {
 
             {/* Test شخصیت */}
             {card.title === "تست شخصیت" ? (
-              <div className="flex flex-col items-center justify-center gap-2">
+              <div className="flex flex-col items-center justify-center">
                 <p className="text-[#89a1a8] text-xs text-center leading-5">
                   توضیحات کوتاه درباره <br /> تست شخصیت
                 </p>
-                <span className="text-[#80C244] font-bold text-2xl md:text-3xl whitespace-nowrap">
+                <span className="text-secondary font-bold text-2xl md:text-3xl whitespace-nowrap">
                   ۲۰۰،۰۰۰ تومان
                 </span>
               </div>
@@ -78,7 +78,7 @@ const BookingService = () => {
                 {card.prices.map((item, idx) => (
                   <p key={idx} className="text-[#105870] font-bold text-lg md:text-xl">
                     {item.time}:{" "}
-                    <span className="text-[#80C244]">{item.price}</span>
+                    <span className="text-secondary">{item.price}</span>
                   </p>
                 ))}
               </div>

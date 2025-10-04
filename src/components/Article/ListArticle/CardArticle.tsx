@@ -45,7 +45,7 @@ const CardArticle = () => {
 
           {/* Text section */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg md:text-2xl font-bold text-[#105870]">
+            <h3 className="text-lg md:text-2xl font-bold text-primary">
               {item.title}
             </h3>
             <p className="text-sm md:text-base text-[#5b8e9e] leading-relaxed">
@@ -70,7 +70,7 @@ const CardArticle = () => {
                   </div>
                   <div className="flex flex-col text-xs md:text-sm">
                     <span className="text-[#85adb9]">تاریخ انتشار</span>
-                    <span className="text-[#105870] font-bold">
+                    <span className="text-primary font-bold">
                       {item.shareDate}
                     </span>
                   </div>

@@ -12,7 +12,7 @@ const AdditionalDescP2 = () => {
         title=" نتیجه کار "
       />
 
-      <span className="text-[#105870] text-[16px] leading-relaxed">
+      <span className="text-primary text-[16px] leading-relaxed">
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...
       </span>
 
@@ -28,7 +28,7 @@ const AdditionalDescP2 = () => {
             className="flex flex-row justify-start items-start gap-2 w-full"
           >
             <Image src={check} alt="Check" className="w-8 h-8" />
-            <Link href={`/${index + 1}`} className="text-[#105870] text-lg font-bold">
+            <Link href={`/${index + 1}`} className="text-primary text-lg font-bold">
               {text}
             </Link>
           </div>

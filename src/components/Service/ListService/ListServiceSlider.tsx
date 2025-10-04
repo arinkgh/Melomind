@@ -85,7 +85,7 @@ const ListServiceSlider = () => {
               className="w-1/2 h-1/4 sm:h-40 object-contain"
             />
             {/* Text */}
-            <h3 className="text-[#105870] font-bold text-lg sm:text-xl">
+            <h3 className="text-primary font-bold text-lg sm:text-xl">
               {service.title}
             </h3>
             <p className="text-[#3c6775] text-sm sm:text-base leading-relaxed">

@@ -7,7 +7,7 @@ export function EnterBtn() {
       <Button
         className="
           flex items-center justify-center
-          bg-white text-[#105870] border-2 font-bold hover:bg-white
+          bg-white text-primary border-2 font-bold hover:bg-white
           gap-2
           rounded-[110px] md:rounded-full lg:rounded-[110px]
           py-2 px-3 md:py-2 md:px-2 lg:py-4 lg:px-5

@@ -16,7 +16,7 @@ const FilterArticle = () => {
         className="w-full rounded-[16px] shadow-lg p-4 bg-white"
       >
         <AccordionItem value="cat-1">
-          <AccordionTrigger className="text-lg md:text-xl font-bold text-[#105870] cursor-pointer">
+          <AccordionTrigger className="text-lg md:text-xl font-bold text-primary cursor-pointer">
             دسته بندی
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
@@ -29,7 +29,7 @@ const FilterArticle = () => {
                 key={i}
                 className="flex items-center justify-between cursor-pointer px-6 gap-2 "
               >
-                <span className="text-base md:text-lg font-medium text-[#105870]">
+                <span className="text-base md:text-lg font-medium text-primary">
                   {label}
                 </span>
                 <Checkbox className="w-5 h-5 md:w-6 md:h-6 border-2 rounded-[7px] border-[#e0e0e0] cursor-pointer" />
@@ -45,7 +45,7 @@ const FilterArticle = () => {
         className="w-full rounded-[16px] shadow-lg p-4 bg-white"
       >
         <AccordionItem value="cat-2">
-          <AccordionTrigger className="text-lg md:text-xl font-bold text-[#105870] cursor-pointer">
+          <AccordionTrigger className="text-lg md:text-xl font-bold text-primary cursor-pointer">
             فیلتر کردن
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
@@ -61,7 +61,7 @@ const FilterArticle = () => {
                 key={i}
                 className="flex items-center justify-between cursor-pointer px-6 gap-2 "
               >
-                <span className="text-base md:text-lg font-medium text-[#105870]">
+                <span className="text-base md:text-lg font-medium text-primary">
                   {label}
                 </span>
                 <Checkbox className="w-5 h-5 md:w-6 md:h-6 border-2 rounded-[7px] border-[#e0e0e0] cursor-pointer" />
