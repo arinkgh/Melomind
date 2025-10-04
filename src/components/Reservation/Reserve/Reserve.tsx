@@ -1,6 +1,7 @@
 import ReserveTitle from "@/components/common/ReserveTitle/ReserveTitle";
 import React from "react";
 import ReserveType from "./ReserveType";
+import VisitType from "./VisitType";
 
 const Reserve = () => {
   return (
@@ -11,7 +12,10 @@ const Reserve = () => {
         subtitle="برای رزرو نوبت در ملومایند ابتدا نوع رزرو را انتخاب کنید"
       />
       {/* Items */}
-      <ReserveType/>
+
+
+      {/* <ReserveType/> */}
+      <VisitType/>
     </div>
   );
 };
