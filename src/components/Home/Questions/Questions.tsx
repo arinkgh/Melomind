@@ -42,16 +42,16 @@ const Questions = () => {
             value={`item-${item.number}`}
             className="w-full rounded-[20px] shadow-[#92B3BE1A] shadow-2xl p-6 cursor-pointer"
           >
-            <AccordionTrigger className="flex items-center justify-between cursor-pointer text-right [&[data-state=open]>span]:text-[#76C144]">
+            <AccordionTrigger className="flex items-center justify-between cursor-pointer text-right [&[data-state=open]>span]:text-primary/80">
               {/* Number + Title together */}
-              <span className=" text-xl md:text-2xl font-bold text-[#105870] flex items-center gap-2">
-                <span className="text-[#76C144]">{item.number}.</span>
+              <span className=" text-xl md:text-2xl font-bold text-secondary flex items-center gap-2">
+                <span className="text-primary/80">{item.number}.</span>
                 {item.title}
               </span>
             </AccordionTrigger>
 
             <AccordionContent>
-              <p className="text-[#6997a8] font-semibold text-[18px] leading-relaxed text-right">
+              <p className="text-secondary/80 font-semibold text-[18px] leading-relaxed text-right">
                 {item.desc || "پاسخی برای این سوال ثبت نشده است."}
               </p>
             </AccordionContent>

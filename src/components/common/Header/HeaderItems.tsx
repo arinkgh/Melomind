@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../../../public/Images/Logo.svg'
+import logo from '@/../public/Images/Logo.svg'
 import Image from "next/image";
 import Link from 'next/link';
 const HeaderItems = () => {
@@ -18,12 +18,12 @@ const HeaderItems = () => {
         className='lg:w-[150px] lg:h-[150px] md:w-[100px] md:h-[100px] md:block sm:hidden'
       />
       {/* items */}
-      <div className='flex font-bold flex-row justify-between items-center whitespace-nowrap text-primary 
+      <div className='flex font-bold flex-row justify-between items-center whitespace-nowrap text-secondary 
       lg:text-[18px] lg:gap-14  sm:text-[14px] sm:gap-10'>
         {items.map((item, index) => (
             <li
             key={index}
-            className='hover:text-secondary transition  list-none'
+            className='hover:text-primary transition  list-none'
             >
                 <Link href={item.link}>{item.title}</Link>
             </li>

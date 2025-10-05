@@ -2,7 +2,7 @@
 import React from "react";
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
-import blog from "./../../../../public/Images/Blog.svg";
+import blog from "@/../public/Images/Blog.svg";
 import DetailTitles from "@/components/common/DetailTitles/DetailTitles";
 
 const ArticleSlider = () => {

@@ -1,22 +1,22 @@
-import React from "react";
-import ReserveTitle from "@/components/common/ReserveTitle/ReserveTitle";
-import { PrevBtn } from "@/components/common/Butttons/PrevBtn";
-import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
-import VisitTypeCard from "./VisitTypeCard";
+import { PrevBtn } from '@/components/common/Butttons/PrevBtn'
+import { ReserveNow } from '@/components/common/Butttons/ReserveNow'
+import ReserveTitle from '@/components/common/ReserveTitle/ReserveTitle'
+import React from 'react'
+import MeetTypeCard from './MeetTypeCard'
 
-const VisitType = () => {
+const MeetType = () => {
   return (
     <div className="bg-custom-svg w-full min-h-[700px] flex flex-col items-center justify-center gap-10 py-12">
       {/* title */}
       <ReserveTitle
-        title="نوع نوبت"
-        subtitle="برای رزرو نوبت در ملومایند ابتدا نوع رزرو را انتخاب کنید"
+        title="نوع جلسه برگزاری"
+        subtitle="لطفا نوع جلسه خود را مشخص کنید."
       />
       {/* Main Content */}
       <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto">
         {/* Card */}
         <div className="w-full flex flex-col md:flex-row items-center justify-center">
-          <VisitTypeCard />
+          <MeetTypeCard />
         </div>
         {/* Text */}
         <div className="bg-[#F1F7FA] rounded-[20px] w-full min-h-[130px] flex flex-col gap-3 p-4 mt-6">
@@ -37,7 +37,7 @@ const VisitType = () => {
         <ReserveNow text="ادامه مراحل رزرو" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default VisitType;
+export default MeetType

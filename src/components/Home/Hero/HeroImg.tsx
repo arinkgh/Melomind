@@ -1,8 +1,8 @@
 import React from "react";
-import HeroSvg from "../../../../public/Images/BG.svg";
+import HeroSvg from "@/../public/Images/BG.svg";
 import Image from "next/image";
-import check from "../../../../public/Images/Check.svg";
-import interfaced from "../../../../public/Images/Interface.svg";
+import check from "@/../public/Images/Check.svg";
+import interfaced from "@/../public/Images/Interface.svg";
 
 const HeroImg = () => {
   return (
@@ -15,16 +15,16 @@ const HeroImg = () => {
       />
 
       {/* Floating boxes - only visible on lg and up */}
-      <div className="hidden lg:flex flex-col gap-1.5 pr-6 bg-white shadow-md h-[150px] w-[165px] rounded-[20px] absolute bottom-0 right-10">
+      <div className="hidden lg:flex flex-col gap-1.5 pr-6 bg-background shadow-md h-[150px] w-[165px] rounded-[20px] absolute bottom-0 right-10">
         <Image src={check} alt="check" className="w-12 h-12 pt-1.5" />
-        <p className="text-primary font-semibold text-[16px]">سابقه کار و تجربه</p>
-        <p className="text-secondary font-bold text-[24px]">+۱۰ سال</p>
+        <p className="text-secondary font-semibold text-[16px]">سابقه کار و تجربه</p>
+        <p className="text-primary font-bold text-[24px]">+۱۰ سال</p>
       </div>
 
-      <div className="hidden lg:flex flex-col gap-1.5 pr-6 bg-white shadow-md h-[150px] w-[165px] rounded-[20px] absolute bottom-10 left-10">
+      <div className="hidden lg:flex flex-col gap-1.5 pr-6 bg-background shadow-md h-[150px] w-[165px] rounded-[20px] absolute bottom-10 left-10">
         <Image src={interfaced} alt="interface" className="w-12 h-12 pt-1.5" />
-        <p className="text-primary font-semibold text-[16px]">رضایت مراجعین</p>
-        <p className="text-secondary font-bold text-[24px]">۹۸ درصد</p>
+        <p className="text-secondary font-semibold text-[16px]">رضایت مراجعین</p>
+        <p className="text-primary font-bold text-[24px]">۹۸ درصد</p>
       </div>
     </div>
   );

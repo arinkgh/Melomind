@@ -42,12 +42,12 @@ function AccordionTrigger({
         {...props}
       >
         <div className="flex flex-row flex-nowrap gap-2 items-center">
-          <FiList className="text-[#76C144]"/>
+          <FiList className="text-primary/80"/>
         {children}
         </div>
         
         
-        <ChevronDownIcon className=" pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 text-[#76C144] w-6 h-6" />
+        <ChevronDownIcon className=" pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200 text-primary/80 w-6 h-6" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

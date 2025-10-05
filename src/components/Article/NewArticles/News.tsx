@@ -1,6 +1,6 @@
 import DetailTitles from "@/components/common/DetailTitles/DetailTitles";
 import React from "react";
-import family from "../../../../public/Images/family.svg";
+import family from "@/../public/Images/family.svg";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 
@@ -40,17 +40,17 @@ const News = () => {
 
             {/* Text */}
             <div className="flex flex-col w-[70%]">
-              <p className="text-primary text-base sm:text-lg md:text-xl font-bold">
+              <p className="text-secondary text-base sm:text-lg md:text-xl font-bold">
                 {item.title}
               </p>
-              <span className="text-primary text-sm sm:text-base md:text-lg">
+              <span className="text-secondary text-sm sm:text-base md:text-lg">
                 {item.desc}
               </span>
             </div>
 
             {/* Button */}
             <div className="border rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#76C144]" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-primary/80" />
             </div>
           </div>
         ))}

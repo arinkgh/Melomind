@@ -30,13 +30,13 @@ export const usePrevNextButtons = (emblaApi: EmblaCarouselType | undefined): Use
 };
 
 export const PrevButton: React.FC<ComponentPropsWithRef<"button">> = (props) => (
-  <button className="embla__button embla__button--prev text-[#76C144] text-xl" type="button" {...props}>
+  <button className="embla__button embla__button--prev text-primary/80 text-xl" type="button" {...props}>
     &lt;
   </button>
 );
 
 export const NextButton: React.FC<ComponentPropsWithRef<"button">> = (props) => (
-  <button className="embla__button embla__button--next text-[#76C144] text-xl" type="button" {...props}>
+  <button className="embla__button embla__button--next text-primary/80 text-xl" type="button" {...props}>
     &gt;
   </button>
 );

@@ -8,21 +8,21 @@ const ArticleDetail = () => {
       <div className=" container mx-auto flex flex-col justify-around items-center gap-10">
         {/* Title */}
         <div className="flex flex-col justify-around items-center h-40 mt-5 whitespace-nowrap">
-          <span className="text-secondary font-semibold text-[18px] md:text-xl">
+          <span className="text-primary font-semibold text-[18px] md:text-xl">
             دسته بندی مقاله یا خبر
           </span>
-          <h2 className="text-primary font-extrabold text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="text-secondary font-extrabold text-3xl md:text-4xl lg:text-5xl">
             تمام آنچه برای سلامت روان خود نیاز دارید
           </h2>
-          <p className="text-primary text-[18px] md:text-xl">
+          <p className="text-secondary text-[18px] md:text-xl">
             توضیحات کوتاه درباره مقاله و نویسنده و تاریخ انتشار و میزان بازدید
           </p>
         </div>
         {/* Poster */}
         <div className=" w-[80%] h-[200px] md:h-[300px] lg:h-[544px] relative flex items-center justify-center">
           {/* Background green layers */}
-          <div className="absolute inset-0 bg-[#AFED65] w-[97%] h-full  mx-auto mt-4 rounded-[37px] hidden lg:block "></div>
-          <div className="absolute inset-3 bg-secondary w-[98%] h-full  mx-auto -mt-3 rounded-[20px] hidden lg:block"></div>
+          <div className="absolute inset-0 bg-primary/80 w-[97%] h-full  mx-auto mt-4 rounded-[37px] hidden lg:block "></div>
+          <div className="absolute inset-3 bg-primary w-[98%] h-full  mx-auto -mt-3 rounded-[20px] hidden lg:block"></div>
           {/* Image */}
           <Image
             src={articleimg}
@@ -31,7 +31,7 @@ const ArticleDetail = () => {
           />
         </div>
         {/* Text */}
-        <div className=" text-[#7ea0ac] w-[80%] mx-auto leading-10 mt-10 text-[16px] md:text-[18px] flex">
+        <div className=" text-secondary/80 w-[80%] mx-auto leading-10 mt-10 text-[16px] md:text-[18px] flex">
           <p>
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در

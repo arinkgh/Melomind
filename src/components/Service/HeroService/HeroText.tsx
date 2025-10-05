@@ -2,9 +2,9 @@ import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
 import DetailTitles from "@/components/common/DetailTitles/DetailTitles";
 import React from "react";
 import Image from "next/image";
-import online from "../../../../public/Images/online.svg";
-import meet from "../../../../public/Images/meet.svg";
-import tel from "../../../../public/Images/tel.svg";
+import online from "@/../public/Images/online.svg";
+import meet from "@/../public/Images/meet.svg";
+import tel from "@/../public/Images/tel.svg";
 
 const HeroText = () => {
   return (
@@ -21,10 +21,10 @@ const HeroText = () => {
           </div>
           {/* text */}
           <div className="flex-1 flex flex-col gap-2">
-            <h4 className="text-primary font-bold text-lg sm:text-xl lg:text-2xl">
+            <h4 className="text-secondary font-bold text-lg sm:text-xl lg:text-2xl">
               آنلاین
             </h4>
-            <p className="text-primary text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p className="text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و ...
             </p>
@@ -38,10 +38,10 @@ const HeroText = () => {
           </div>
           {/* text */}
           <div className="flex-1 flex flex-col gap-2">
-            <h4 className="text-primary font-bold text-lg sm:text-xl lg:text-2xl">
+            <h4 className="text-secondary font-bold text-lg sm:text-xl lg:text-2xl">
               تلفنی
             </h4>
-            <p className="text-primary text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p className="text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و ...
             </p>
@@ -55,10 +55,10 @@ const HeroText = () => {
           </div>
           {/* text */}
           <div className="flex-1 flex flex-col gap-2">
-            <h4 className="text-primary font-bold text-lg sm:text-xl lg:text-2xl">
+            <h4 className="text-secondary font-bold text-lg sm:text-xl lg:text-2xl">
               حضوری
             </h4>
-            <p className="text-primary text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p className="text-secondary text-sm sm:text-base lg:text-lg leading-relaxed">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و ...
             </p>

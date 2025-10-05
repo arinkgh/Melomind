@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
-import online from "../../../../public/Images/online.svg";
-import tel from "../../../../public/Images/tel.svg";
-import meet from "../../../../public/Images/meet.svg";
-import test from "../../../../public/Images/test.svg";
+import online from "@/../public/Images/online.svg";
+import tel from "@/../public/Images/tel.svg";
+import meet from "@/../public/Images/meet.svg";
+import test from "@/../public/Images/test.svg";
 import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
 
 const BookingService = () => {
@@ -43,10 +43,10 @@ const BookingService = () => {
     <div className="container mx-auto rounded-[20px] mt-40 bg-half-svg h-auto py-16 flex flex-col items-center justify-center gap-10">
       {/* Title */}
       <div className="flex flex-col items-center justify-center text-center px-4">
-        <p className="text-primary text-lg md:text-xl font-semibold">
+        <p className="text-secondary text-lg md:text-xl font-semibold">
           مزیت‌ها و فواید ملومایند
         </p>
-        <h3 className="text-white font-extrabold text-3xl md:text-5xl mt-2">
+        <h3 className="text-background font-extrabold text-3xl md:text-5xl mt-2">
           تعرفه‌های رزرو
         </h3>
       </div>
@@ -56,29 +56,29 @@ const BookingService = () => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="bg-white rounded-[20px] shadow w-[90%] sm:w-[300px] md:w-[320px] h-auto py-8 flex flex-col justify-center items-center gap-6"
+            className="bg-background rounded-[20px] shadow w-[90%] sm:w-[300px] md:w-[320px] h-auto py-8 flex flex-col justify-center items-center gap-6"
           >
             <Image src={card.image} alt="#" className="w-16 h-16" />
-            <h3 className="text-[#105870] text-xl md:text-2xl font-bold text-center">
+            <h3 className="text-secondary text-xl md:text-2xl font-bold text-center">
               {card.title}
             </h3>
 
             {/* Test شخصیت */}
             {card.title === "تست شخصیت" ? (
               <div className="flex flex-col items-center justify-center">
-                <p className="text-[#89a1a8] text-xs text-center leading-5">
+                <p className="text-secondary/80 text-xs text-center leading-5">
                   توضیحات کوتاه درباره <br /> تست شخصیت
                 </p>
-                <span className="text-secondary font-bold text-2xl md:text-3xl whitespace-nowrap">
+                <span className="text-primary font-bold text-2xl md:text-3xl whitespace-nowrap">
                   ۲۰۰،۰۰۰ تومان
                 </span>
               </div>
             ) : (
               <div className="flex flex-col gap-2">
                 {card.prices.map((item, idx) => (
-                  <p key={idx} className="text-[#105870] font-bold text-lg md:text-xl">
+                  <p key={idx} className="text-secondary font-bold text-lg md:text-xl">
                     {item.time}:{" "}
-                    <span className="text-secondary">{item.price}</span>
+                    <span className="text-primary">{item.price}</span>
                   </p>
                 ))}
               </div>

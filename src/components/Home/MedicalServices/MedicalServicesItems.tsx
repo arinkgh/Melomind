@@ -1,7 +1,7 @@
 import React from "react";
-import depressionImg from "../../../../public/Images/depression.svg";
-import addictionImg from "../../../../public/Images/addicted.svg";
-import anxietyImg from "../../../../public/Images/anxiety.svg";
+import depressionImg from "@/../public/Images/depression.svg";
+import addictionImg from "@/../public/Images/addicted.svg";
+import anxietyImg from "@/../public/Images/anxiety.svg";
 import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 
@@ -32,17 +32,17 @@ const MedicalServicesItems = () => {
           className="rounded-[20px] shadow-2xl flex flex-col justify-between p-6 cursor-pointer h-auto min-h-[280px]"
         >
           <Image src={item.image} alt={item.title} className="w-16 h-16 md:w-20 md:h-20" />
-          <h4 className="font-bold text-xl md:text-2xl text-primary mt-3">
+          <h4 className="font-bold text-xl md:text-2xl text-secondary mt-3">
             {item.title}
           </h4>
-          <p className="font-semibold text-[#347a91] text-sm md:text-base lg:text-lg flex-grow">
+          <p className="font-semibold text-secondary/80 text-sm md:text-base lg:text-lg flex-grow">
             {item.desc}
           </p>
           <div className="flex items-center gap-2 mt-4">
-            <p className="text-sm md:text-base lg:text-lg text-primary font-bold">
+            <p className="text-sm md:text-base lg:text-lg text-secondary font-bold">
               ادامه مطلب
             </p>
-            <ChevronLeft className="text-secondary" size={20} />
+            <ChevronLeft className="text-primary" size={20} />
           </div>
         </div>
       ))}

@@ -4,9 +4,9 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import online from '../../../../public/Images/facetime.svg';
-import tel from '../../../../public/Images/children.svg';
-import meet from '../../../../public/Images/springpackage.svg';import { ReservationBn } from '@/components/common/Butttons/ReservationBtn';
+import online from '@/../public/Images/facetime.svg';
+import tel from '@/../public/Images/children.svg';
+import meet from '@/../public/Images/springpackage.svg';import { ReservationBn } from '@/components/common/Butttons/ReservationBtn';
 
 
 
@@ -85,10 +85,10 @@ const ListServiceSlider = () => {
               className="w-1/2 h-1/4 sm:h-40 object-contain"
             />
             {/* Text */}
-            <h3 className="text-primary font-bold text-lg sm:text-xl">
+            <h3 className="text-secondary font-bold text-lg sm:text-xl">
               {service.title}
             </h3>
-            <p className="text-[#3c6775] text-sm sm:text-base leading-relaxed">
+            <p className="text-secondary/80 text-sm sm:text-base leading-relaxed">
               {service.description}
             </p>
             {/* Button */}

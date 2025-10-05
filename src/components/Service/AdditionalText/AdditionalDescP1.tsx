@@ -1,6 +1,6 @@
 import DetailTitles from "@/components/common/DetailTitles/DetailTitles";
 import React from "react";
-import check from "../../../../public/Images/Check.svg";
+import check from "@/../public/Images/Check.svg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ const AdditionalDescP1 = () => {
         title="مزیت‌های ملومایند"
       />
 
-      <span className="text-primary text-[16px] leading-relaxed">
+      <span className="text-secondary text-[16px] leading-relaxed">
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...
       </span>
 
@@ -29,7 +29,7 @@ const AdditionalDescP1 = () => {
             className="flex flex-row justify-start items-start gap-2 w-full"
           >
             <Image src={check} alt="Check" className="w-8 h-8" />
-            <Link href={`/${index + 1}`} className="text-primary text-lg font-bold">
+            <Link href={`/${index + 1}`} className="text-secondary text-lg font-bold">
               {text}
             </Link>
           </div>

@@ -1,14 +1,16 @@
-import Image from "next/image";
-import React from "react";
-import mind from "@/../public/Images/mind.svg";
-import alone from "@/../public/Images/alone.svg";
+import Image from 'next/image'
+import React from 'react'
+import meet from "@/../public/Images/meet.svg"
+import online from '@/../public/Images/online.svg'
+import tel from '@/../public/Images/tel.svg'
 
-const VisitTypeCard = () => {
+const MeetTypeCard = () => {
   return (
-    <div className="mt-10 w-full flex flex-col md:flex-row items-center justify-center gap-4">
+      <div className="mt-10 w-full flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-4">
       {[
-        { img: mind, title: "روان درمانی" },
-        { img: alone, title: "ویزیت" },
+        { img: meet, title: "حضوری" },
+        { img: online, title: "آنلاین" },
+        { img: tel, title: "تلفنی" },
       ].map(({ img, title }, index) => (
         <div
           key={index}
@@ -26,7 +28,7 @@ const VisitTypeCard = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default VisitTypeCard;
+export default MeetTypeCard

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import add3 from "../../../../public/Images/add3.svg";
-import check from "../../../../public/Images/Check.svg";
+import add3 from "@/../public/Images/add3.svg";
+import check from "@/../public/Images/Check.svg";
 
 const AdditionalImageP3 = () => {
   return (
@@ -14,12 +14,12 @@ const AdditionalImageP3 = () => {
         />
 
         {/* Floating box */}
-        <div className="flex flex-col gap-2 p-4 bg-white shadow-md w-40 sm:w-44 rounded-xl absolute -bottom-2 left-4 sm:left-6">
+        <div className="flex flex-col gap-2 p-4 bg-background shadow-md w-40 sm:w-44 rounded-xl absolute -bottom-2 left-4 sm:left-6">
           <Image src={check} alt="Interface" className="w-10 h-10" />
-          <p className="text-primary font-semibold text-sm sm:text-base">
+          <p className="text-secondary font-semibold text-sm sm:text-base">
             روند درمانی{" "}
           </p>
-          <p className="text-secondary font-extrabold text-xl sm:text-2xl">
+          <p className="text-primary font-extrabold text-xl sm:text-2xl">
             ۶ مرحله{" "}
           </p>
         </div>

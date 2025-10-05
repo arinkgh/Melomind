@@ -1,9 +1,9 @@
 import React from "react";
 import CircleNextBtn from "../common/Butttons/CircleNextBtn";
 import Image from "next/image";
-import group from "../../../public/Images/group.svg";
-import couple from "../../../public/Images/couple.svg";
-import person from "../../../public/Images/person.svg";
+import group from "@/../public/Images/group.svg";
+import couple from "@/../public/Images/couple.svg";
+import person from "@/../public/Images/person.svg";
 
 const ReservationCard = () => {
   return (
@@ -15,14 +15,14 @@ const ReservationCard = () => {
       ].map(({ img, title }, index) => (
         <div
           key={index}
-          className="border-2 w-[85%]  lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-white py-6 cursor-pointer"
+          className="border-2 w-[85%]  lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer"
         >
           <Image src={img} alt="#" className="w-20 h-20" />
           <div className="flex flex-col items-center text-center">
-            <h4 className="text-primary font-bold text-xl md:text-2xl">
+            <h4 className="text-secondary font-bold text-xl md:text-2xl">
               {title}
             </h4>
-            <p className="text-[#5e7177] text-[14px] md:text-[18px] mt-1">
+            <p className="text-secondary/80 text-[14px] md:text-[18px] mt-1">
               توضیحات مختصر و مثال
             </p>
           </div>
