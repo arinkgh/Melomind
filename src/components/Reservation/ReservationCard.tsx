@@ -1,18 +1,17 @@
-import React from 'react'
-import Image from 'next/image'
-import group from '../../../../public/Images/group.svg'
-import couple from '../../../../public/Images/couple.svg'
-import person from '../../../../public/Images/person.svg'
-import CircleNextBtn from '@/components/common/Butttons/CircleNextBtn'
+import React from "react";
+import CircleNextBtn from "../common/Butttons/CircleNextBtn";
+import Image from "next/image";
+import group from "../../../public/Images/group.svg";
+import couple from "../../../public/Images/couple.svg";
+import person from "../../../public/Images/person.svg";
 
-const ReserveType = () => {
+const ReservationCard = () => {
   return (
     <div className="mt-10 w-full flex flex-col md:flex-row md:flex-wrap lg:flex-row items-center justify-center md:justify-around gap-6 md:gap-8">
-      
-      {[ 
+      {[
         { img: group, title: "نوبت گروه درمانی" },
         { img: couple, title: "نوبت زوج درمانی" },
-        { img: person, title: "نوبت فردی" }
+        { img: person, title: "نوبت فردی" },
       ].map(({ img, title }, index) => (
         <div
           key={index}
@@ -31,7 +30,7 @@ const ReserveType = () => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default ReserveType
+export default ReservationCard;

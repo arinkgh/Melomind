@@ -1,14 +1,20 @@
-import React from 'react'
-import Reserve from './Reserve/Reserve'
-import { PrevBtn } from '../common/Butttons/PrevBtn'
-import { ReserveNow } from '../common/Butttons/ReserveNow'
+import React from "react";
+import { PrevBtn } from "../common/Butttons/PrevBtn";
+import { ReserveNow } from "../common/Butttons/ReserveNow";
+import ReserveTitle from "../common/ReserveTitle/ReserveTitle";
+import ReservationCard from "./ReservationCard";
 
 const Reservation = () => {
   return (
     <div className="bg-custom-svg w-full min-h-[700px] flex flex-col items-center justify-center gap-10 py-12">
+      {/* title */}
+      <ReserveTitle
+        title="رزرو نوبت"
+        subtitle="برای رزرو نوبت در ملومایند ابتدا نوع رزرو را انتخاب کنید"
+      />
       {/* Main Content */}
       <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto">
-        <Reserve />
+        <ReservationCard />
       </div>
 
       {/* Buttons */}
@@ -17,7 +23,7 @@ const Reservation = () => {
         <ReserveNow text="ادامه مراحل رزرو" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Reservation
+export default Reservation;

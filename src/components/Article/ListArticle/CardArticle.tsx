@@ -79,7 +79,7 @@ const CardArticle = () => {
                 {/* Views */}
                 <div className="flex items-center gap-3">
                   <div className="border rounded-full w-10 h-10 flex items-center justify-center">
-                    <MdOutlineRemoveRedEye className="text-xl text-[#76C144]" />
+                    <MdOutlineRemoveRedEye className="text-xl text-[#76C144] text-secondary/80" />
                   </div>
                   <div className="flex flex-col text-xs md:text-sm">
                     <span className="text-[#85adb9]">تعداد بازدید</span>
