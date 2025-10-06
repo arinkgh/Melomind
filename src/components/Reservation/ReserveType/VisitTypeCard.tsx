@@ -3,7 +3,7 @@ import React from "react";
 import mind from "@/../public/Images/mind.svg";
 import alone from "@/../public/Images/alone.svg";
 
-const VisitTypeCard = () => {
+const VisitTypeCard = () => {  
   return (
     <div className="mt-10 w-full flex flex-col md:flex-row items-center justify-center gap-4">
       {[
