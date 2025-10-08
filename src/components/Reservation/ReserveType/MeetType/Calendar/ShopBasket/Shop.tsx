@@ -3,6 +3,8 @@ import { PrevBtn } from '@/components/common/Butttons/PrevBtn'
 import { ReserveNow } from '@/components/common/Butttons/ReserveNow'
 import ReserveTitle from '@/components/common/ReserveTitle/ReserveTitle'
 import React from 'react'
+import ReserveTable from './ReserveTable'
+import FinalPrice from './FinalPrice'
 
 const Shop = () => {
   return (
@@ -13,10 +15,11 @@ const Shop = () => {
         subtitle="میتوانید نوبت‌های رزرو شده را ویرایش یا حذف و یا نوبت جدیدی رزرو کنید"
       />
       {/* Main Content */}
-      <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto">
-        {/* Calendar */}
-
-        
+      <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto border flex flex-col gap-40">
+        {/* Reserve Table */}
+        <ReserveTable/>
+        {/* Final Price */}
+        <FinalPrice/>
       </div>
       {/* Buttons */}
         <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] flex flex-col sm:flex-row justify-between items-center gap-4 mb-20">
