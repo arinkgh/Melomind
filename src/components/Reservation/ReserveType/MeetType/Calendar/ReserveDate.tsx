@@ -14,7 +14,7 @@ const ReserveDate = () => {
         subtitle="روز و ساعت رزرو خود را انتخاب کنید."
       />
       {/* Main Content */}
-      <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto border-2 rounded-[20px] flex flex-row">
+      <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto border-2 bg-background rounded-[20px] flex flex-row">
         {/* Time */}
         <Time/>
         {/* Calendar */}
