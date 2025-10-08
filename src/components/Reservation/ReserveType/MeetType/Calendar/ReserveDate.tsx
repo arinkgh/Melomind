@@ -16,7 +16,7 @@ const ReserveDate = () => {
       {/* Main Content */}
       <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto border-2 bg-background rounded-[20px] flex flex-row">
         {/* Time */}
-        <Time/>
+        <Time startTime="08:00" endTime="20:00" divideMinutes={30} unavailableSlots={["10:00 - 10:30", "14:30 - 15:00"]}/>
         {/* Calendar */}
         <CalendarBox/>
       </div>
