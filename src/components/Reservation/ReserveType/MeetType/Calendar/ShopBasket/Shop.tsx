@@ -14,21 +14,28 @@ const Shop = () => {
         title="سبد خرید"
         subtitle="میتوانید نوبت‌های رزرو شده را ویرایش یا حذف و یا نوبت جدیدی رزرو کنید"
       />
+
       {/* Main Content */}
-      <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] mx-auto border flex flex-col gap-40">
+      <div className="w-[95%] sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto flex flex-col gap-50">
         {/* Reserve Table */}
-        <ReserveTable/>
+        <ReserveTable />
+
         {/* Final Price */}
-        <FinalPrice/>
+        <FinalPrice />
       </div>
+
       {/* Buttons */}
-        <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[50%] flex flex-col sm:flex-row justify-between items-center gap-4 mb-20">
+      <div className="w-[95%] sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] flex flex-col md:flex-row justify-between items-stretch gap-4 mb-20">
+        {/* Buttons stack column on mobile (user requested) */}
+        <div className="w-full md:w-auto">
           <PrevBtn text="مرحله قبل" />
-          <div className='flex flex-col md:flex-row gap-2'>
-            <AddReserve text='افزودن نوبت جدید'/>
-            <ReserveNow text="ادامه مراحل رزرو" />
-          </div>
         </div>
+
+        <div className="w-full md:w-auto flex flex-col md:flex-row gap-3">
+          <AddReserve text="افزودن نوبت جدید" />
+          <ReserveNow text="ادامه مراحل رزرو" />
+        </div>
+      </div>
     </div>
   )
 }
