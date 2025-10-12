@@ -22,7 +22,7 @@ const OnlineGuide = () => {
 
           {/* button */}
           <div className="flex justify-center lg:justify-start">
-            <ReserveNow text="ادامه" />
+            <ReserveNow text="باشه!" />
           </div>
         </div>
 
