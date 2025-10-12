@@ -1,104 +1,77 @@
-// // MainSlider.tsx
-// import React from 'react';
-// import Image from 'next/image';
+"use client";
 
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/css';
-// import 'swiper/css/grid';
-// import 'swiper/css/pagination';
-// import { Grid, Pagination } from 'swiper/modules';
-// import CircleNextBtn from '../common/Butttons/CircleNextBtn';
-
-// const cardsData = [
-//   { title: 'گروه ۱', img: '/placeholder.png' },
-//   { title: 'گروه ۲', img: '/placeholder.png' },
-//   { title: 'گروه ۳', img: '/placeholder.png' },
-//   { title: 'گروه ۴', img: '/placeholder.png' },
-//   { title: 'گروه ۵', img: '/placeholder.png' },
-//   { title: 'گروه ۶', img: '/placeholder.png' },
-//   { title: 'گروه ۷', img: '/placeholder.png' },
-//   { title: 'گروه ۸', img: '/placeholder.png' },
-//   { title: 'گروه ۹', img: '/placeholder.png' },
-// ];
-
-// const MainSlider = () => {
-//   return (
-//     <Swiper
-//       slidesPerView={1}
-//       grid={{ rows: 3, fill: 'row' }}
-//       spaceBetween={30}
-//       pagination={{ clickable: true }}
-//       modules={[Grid, Pagination]}
-//       className="mySwiper h-full"
-//     >
-//       <SwiperSlide>
-//         <div className="flex flex-wrap justify-center gap-6">
-//           {cardsData.map((card, index) => (
-//             <div
-//               key={index}
-//               className="border-2 w-[85%] lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer"
-//             >
-//               <Image src={card.img} alt={card.title} width={80} height={80} />
-//               <div className="flex flex-col items-center text-center">
-//                 <h4 className="text-secondary font-bold text-xl md:text-2xl">
-//                   {card.title}
-//                 </h4>
-//                 <p className="text-secondary/80 text-[14px] md:text-[18px] mt-1">
-//                   توضیحات مختصر و مثال
-//                 </p>
-//               </div>
-//               <CircleNextBtn />
-//             </div>
-//           ))}
-//         </div>
-//       </SwiperSlide>
-//     </Swiper>
-//   );
-// };
-
-// export default MainSlider;
-
-
-
-
-
-
-
-
-// MainSlider.tsx
-'use client';
-
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/grid';
-import 'swiper/css/pagination';
-import { Grid, Pagination } from 'swiper/modules';
-import Image from 'next/image';
-import CircleNextBtn from '../common/Butttons/CircleNextBtn';
-import group from "@/../public/Images/group.svg"
-import couple from "@/../public/Images/couple.svg"
-import person from "@/../public/Images/person.svg"
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/grid";
+import "swiper/css/pagination";
+import { Grid, Pagination } from "swiper/modules";
+import Image from "next/image";
+import CircleNextBtn from "../common/Butttons/CircleNextBtn";
+import group from "@/../public/Images/group.svg";
+import couple from "@/../public/Images/couple.svg";
+import person from "@/../public/Images/person.svg";
 
 // Dynamic cards data
 const cards = [
-  { img: group, title: 'گروه پنیک', description: 'توضیحات مختصر و مثال' },
-{ img: couple, title: ' گروه والدین ADHD', description: 'توضیحات مختصر و مثال' },
-  { img: person, title: ' گروه سوگواران حیوانات خانگی', description: 'توضیحات مختصر و مثال' },
-  { img: group, title: ' گروه افسردگی', description: 'توضیحات مختصر و مثال' },
-  { img: couple, title: ' گروه پنیک', description: 'توضیحات مختصر و مثال' },
-  { img: person, title: ' گروه والدین ADHD', description: 'توضیحات مختصر و مثال' },
-  { img: group, title: ' گروه افسردگی', description: 'توضیحات مختصر و مثال' },
-  { img: couple, title: ' گروه پنیک', description: 'توضیحات مختصر و مثال' },
-  { img: person, title: ' گروه والدین ADHD', description: 'توضیحات مختصر و مثال' },
+  { img: group, title: "گروه پنیک", description: "توضیحات مختصر و مثال" },
+  {
+    img: couple,
+    title: " گروه والدین ADHD",
+    description: "توضیحات مختصر و مثال",
+  },
+  {
+    img: person,
+    title: " گروه سوگواران حیوانات خانگی",
+    description: "توضیحات مختصر و مثال",
+  },
+  { img: group, title: " گروه افسردگی", description: "توضیحات مختصر و مثال" },
+  { img: couple, title: " گروه پنیک", description: "توضیحات مختصر و مثال" },
+  {
+    img: person,
+    title: " گروه والدین ADHD",
+    description: "توضیحات مختصر و مثال",
+  },
+  { img: group, title: " گروه افسردگی", description: "توضیحات مختصر و مثال" },
+  { img: couple, title: " گروه پنیک", description: "توضیحات مختصر و مثال" },
+  {
+    img: person,
+    title: " گروه والدین ADHD",
+    description: "توضیحات مختصر و مثال",
+  },
+  { img: group, title: "گروه پنیک", description: "توضیحات مختصر و مثال" },
+  {
+    img: couple,
+    title: " گروه والدین ADHD",
+    description: "توضیحات مختصر و مثال",
+  },
+  {
+    img: person,
+    title: " گروه سوگواران حیوانات خانگی",
+    description: "توضیحات مختصر و مثال",
+  },
+  { img: group, title: " گروه افسردگی", description: "توضیحات مختصر و مثال" },
+  { img: couple, title: " گروه پنیک", description: "توضیحات مختصر و مثال" },
+  {
+    img: person,
+    title: " گروه والدین ADHD",
+    description: "توضیحات مختصر و مثال",
+  },
+  { img: group, title: " گروه افسردگی", description: "توضیحات مختصر و مثال" },
+  { img: couple, title: " گروه پنیک", description: "توضیحات مختصر و مثال" },
+  {
+    img: person,
+    title: " گروه والدین ADHD",
+    description: "توضیحات مختصر و مثال",
+  },
 ];
 
 const MainSlider = () => {
   return (
-    <div className="w-full py-10">
-      <Swiper
+    <div className="w-full">
+      {/* <Swiper
         slidesPerView={3}
-        grid={{ rows: 3, fill: 'row' }}
+        grid={{ rows: 3, fill: "row" }}
         spaceBetween={30}
         pagination={{ clickable: true }}
         modules={[Grid, Pagination]}
@@ -115,8 +88,69 @@ const MainSlider = () => {
                 className="w-20 h-20"
               />
               <div className="flex flex-col items-center text-center px-4">
-                <h4 className="text-secondary font-bold text-xl md:text-2xl">{card.title}</h4>
-                <p className="text-secondary/80 text-[14px] md:text-[18px] mt-1">{card.description}</p>
+                <h4 className="text-secondary font-bold text-xl md:text-2xl">
+                  {card.title}
+                </h4>
+                <p className="text-secondary/80 text-[14px] md:text-[18px] mt-1">
+                  {card.description}
+                </p>
+              </div>
+              <CircleNextBtn />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper> */}
+
+      <Swiper
+        spaceBetween={30}
+        pagination={{ clickable: true }}
+        modules={[Grid, Pagination]}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            grid: { rows: 2, fill: "row" },
+          },
+          640: {
+            slidesPerView: 2,
+            grid: { rows: 3, fill: "row" },
+          },
+          1024: {
+            slidesPerView: 2, 
+            grid: { rows: 3, fill: "row" },
+          },
+          1280: {
+            slidesPerView: 3, 
+            grid: { rows: 3, fill: "row" },
+          },
+        }}
+        className="mySwiper"
+      >
+        {cards.map((card, index) => (
+          <SwiperSlide key={index}>
+            {/* <div className="border-2 w-[90%] sm:w-[85%] lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto"> */}
+            <div
+              className="
+              border-2
+              w-[90%] sm:w-[85%] 
+              md:w-[260px] md:h-[330px]
+              lg:w-[230px] lg:h-[300px]   
+              xl:w-[280px] xl:h-[340px]   
+              rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto"
+            >
+              <Image
+                src={card.img}
+                alt={card.title}
+                width={80}
+                height={80}
+                className="w-20 h-20"
+              />
+              <div className="flex flex-col items-center text-center px-4">
+                <h4 className="text-secondary font-bold text-lg sm:text-xl md:text-2xl">
+                  {card.title}
+                </h4>
+                <p className="text-secondary/80 text-[12px] sm:text-[14px] md:text-[18px] mt-1">
+                  {card.description}
+                </p>
               </div>
               <CircleNextBtn />
             </div>
