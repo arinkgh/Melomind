@@ -1,5 +1,5 @@
 import React from "react";
-import { PrevBtn } from "../common/Butttons/PrevBtn";
+import { PrevBtn } from "../../common/Butttons/PrevBtn";
 import MainSlider from "./MainSlider";
 
 const GroupTherapy = () => {

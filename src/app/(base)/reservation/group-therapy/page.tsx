@@ -1,5 +1,5 @@
 import Footer from '@/components/common/Footer/Footer'
-import GroupTherapy from '@/components/GroupTherapy/GroupTherapy'
+import GroupTherapy from '@/components/Reservation/GroupTherapy/GroupTherapy'
 import Questions from '@/components/Home/Questions/Questions'
 import ReservePoster from '@/components/Home/ReservePoster/ReservePoster'
 import React from 'react'

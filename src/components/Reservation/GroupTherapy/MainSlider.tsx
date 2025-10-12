@@ -7,7 +7,7 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import { Grid, Pagination } from "swiper/modules";
 import Image from "next/image";
-import CircleNextBtn from "../common/Butttons/CircleNextBtn";
+import CircleNextBtn from "../../common/Butttons/CircleNextBtn";
 import group from "@/../public/Images/group.svg";
 import couple from "@/../public/Images/couple.svg";
 import person from "@/../public/Images/person.svg";
