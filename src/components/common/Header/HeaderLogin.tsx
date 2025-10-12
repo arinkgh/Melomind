@@ -7,7 +7,7 @@ const HeaderLogin = () => {
     <div className="flex flex-row gap-2 items-center justify-center">
       <EnterBtn />
       <ReservationBn text="دریافت نوبت" />
-    </div>
+    </div> 
   );
 };
 
