@@ -1,11 +1,31 @@
-import React from "react";
+// import Dashboard from "@/components/Admin/Dashboard/Dashboard";
+// import React from "react";
 
-const page = () => {
+// const page = () => {
+//   return (
+//     <div className=" w-400 bg-background rounded-[20px]  shadow p-6">
+//         <Dashboard/>
+//     </div>
+//   );
+// };
+
+// export default page;
+
+
+"use client";
+
+import React from "react";
+import Dashboard from "@/components/Admin/Dashboard/Dashboard";
+
+const Page = () => {
   return (
-    <div className=" w-400 bg-background rounded-[20px] h-160 shadow">
-        dashhhhhhhhh
+    <div className="flex-1 p-4 lg:p-6 min-h-screen flex flex-col gap-6">
+      {/* Dashboard card container */}
+      <div className="w-full bg-background rounded-[20px] shadow p-4 lg:p-6">
+        <Dashboard />
+      </div>
     </div>
   );
 };
 
-export default page;
+export default Page;

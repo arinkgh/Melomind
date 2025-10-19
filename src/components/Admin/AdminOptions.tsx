@@ -1,3 +1,48 @@
+// "use client";
+
+// import Link from "next/link";
+// import React from "react";
+// import { MdDashboard } from "react-icons/md";
+// import { RiComputerLine, RiFolderHistoryLine } from "react-icons/ri";
+// import { FaUserGroup } from "react-icons/fa6";
+// import { PiFolderUser } from "react-icons/pi";
+
+// interface Props {
+//   onNavigate?: () => void;
+// }
+
+// const items = [
+//   { icon: <MdDashboard className="w-6 h-6" />, text: "داشبورد", href: "/admin/dashboard" },
+//   { icon: <FaUserGroup className="w-6 h-6" />, text: "گروه درمانی", href: "/about" },
+//   { icon: <RiComputerLine className="w-6 h-6" />, text: "نوبت‌های من", href: "/about" },
+//   { icon: <RiFolderHistoryLine className="w-6 h-6" />, text: "تاریخچه ویزیت", href: "/about" },
+//   { icon: <PiFolderUser className="w-6 h-6" />, text: "مشخصات کاربری", href: "/about" },
+// ];
+
+// export default function AdminOptions({ onNavigate }: Props) {
+//   return (
+//     <div className="bg-background rounded-[20px] shadow p-4 w-80">
+//       <ul className="flex flex-col gap-3">
+//         {items.map((it, idx) => (
+//           <li key={idx}>
+//             <Link
+//               href={it.href}
+//               onClick={() => onNavigate?.()}
+//               className="flex items-center gap-3 p-3 rounded-lg text-secondary hover:bg-white/5 hover:text-primary transition"
+//             >
+//               {it.icon}
+//               <span className="text-base">{it.text}</span>
+//             </Link>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import { MdDashboard } from "react-icons/md";
@@ -5,34 +50,35 @@ import { RiComputerLine, RiFolderHistoryLine } from "react-icons/ri";
 import { FaUserGroup } from "react-icons/fa6";
 import { PiFolderUser } from "react-icons/pi";
 
+interface Props {
+  onNavigate?: () => void;
+}
 
-const AdminOptions = () => {
+const items = [
+  { icon: <MdDashboard className="w-6 h-6" />, text: "داشبورد", href: "/admin/dashboard" },
+  { icon: <FaUserGroup className="w-6 h-6" />, text: "گروه درمانی", href: "/about" },
+  { icon: <RiComputerLine className="w-6 h-6" />, text: "نوبت‌های من", href: "/about" },
+  { icon: <RiFolderHistoryLine className="w-6 h-6" />, text: "تاریخچه ویزیت", href: "/about" },
+  { icon: <PiFolderUser className="w-6 h-6" />, text: "مشخصات کاربری", href: "/about" },
+];
+
+export default function AdminOptions({ onNavigate }: Props) {
   return (
-    <div className=" h-160 w-80 shadow bg-background rounded-[20px] p-6">
-      <ul className=" flex flex-col gap-6">
-        <li className="flex flex-row p-1 gap-4 text-secondary hover:text-primary transition text-[18px] cursor-pointer">
-          <MdDashboard className="w-6 h-6" />
-          <Link href="/about">داشبورد</Link>
-        </li>
-        <li className="flex flex-row p-1 gap-4 text-secondary hover:text-primary transition text-[18px] cursor-pointer">
-          <FaUserGroup className="w-6 h-6" />
-          <Link href="/about">گروه درمانی</Link>
-        </li>
-        <li className="flex flex-row p-1 gap-4 text-secondary hover:text-primary transition text-[18px] cursor-pointer">
-          <RiComputerLine className="w-6 h-6" />
-          <Link href="/about">نوبت‌های من</Link>
-        </li>
-        <li className="flex flex-row p-1 gap-4 text-secondary hover:text-primary transition text-[18px] cursor-pointer">
-          <RiFolderHistoryLine className="w-6 h-6" />
-          <Link href="/about">تاریخچه ویزیت</Link>
-        </li>
-        <li className="flex flex-row p-1 gap-4 text-secondary hover:text-primary transition text-[18px] cursor-pointer">
-          <PiFolderUser className="w-6 h-6" />
-          <Link href="/about">مشخصات کاربری</Link>
-        </li>
+    <div className="bg-background rounded-[20px]  p-4 w-full">
+      <ul className="flex flex-col gap-3">
+        {items.map((it, idx) => (
+          <li key={idx}>
+            <Link
+              href={it.href}
+              onClick={() => onNavigate?.()}
+              className="flex items-center gap-3 p-3 rounded-lg text-secondary hover:bg-white/5 hover:text-primary transition"
+            >
+              {it.icon}
+              <span className="text-base">{it.text}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
-};
-
-export default AdminOptions;
+}
