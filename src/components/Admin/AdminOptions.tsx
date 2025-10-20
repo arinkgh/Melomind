@@ -64,7 +64,7 @@ const items = [
 
 export default function AdminOptions({ onNavigate }: Props) {
   return (
-    <div className="bg-background rounded-[20px]  p-4 w-full">
+    <div className="bg-background rounded-[20px] p-4 w-full">
       <ul className="flex flex-col gap-3">
         {items.map((it, idx) => (
           <li key={idx}>

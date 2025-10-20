@@ -34,14 +34,6 @@
 //   );
 // }
 
-
-
-
-
-
-
-
-
 // "use client";
 
 // import React, { useState } from "react";
@@ -90,7 +82,6 @@
 //   );
 // }
 
-
 "use client";
 
 import React, { useState } from "react";
@@ -105,35 +96,37 @@ export default function AdminLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen container mx-auto bg-custom-svg rtl">
-      {/* Sidebar */}
-      <div
-        className={`fixed z-50 h-full bg-background rounded-[20px] shadow p-4 transition-all duration-300
-          ${sidebarOpen ? "right-0 w-64" : "-right-64 w-64"} 
-          lg:relative lg:right-0 lg:w-80`}
-      >
-        <AdminOptions onNavigate={() => setSidebarOpen(false)} />
-      </div>
-
-      {/* Backdrop for mobile */}
-      {sidebarOpen && (
+    <div className="w-full bg-custom-svg ">
+      <div className="flex min-h-screen container mx-auto rtl">
+        {/* Sidebar */}
         <div
-          className="fixed inset-0 bg-black/30 z-40 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
-      {/* Main content */}
-      <div className="flex-1 p-4 lg:p-6 lg:ml-0 flex flex-col items-center">
-        {/* Mobile Hamburger */}
-        <div className="lg:hidden mb-4 self-start">
-          <HiMenuAlt3
-            className="w-8 h-8 cursor-pointer text-secondary"
-            onClick={() => setSidebarOpen(true)}
-          />
+          className={`fixed z-50 h-184  bg-background rounded-[20px] shadow p-4 transition-all duration-300 
+          ${sidebarOpen ? "right-0 w-64 -mt-36 h-full" : "-right-64 w-64"} 
+          lg:relative lg:right-0 lg:w-80`}
+        >
+          <AdminOptions onNavigate={() => setSidebarOpen(false)} />
         </div>
 
-        <div className="w-full">{children}</div>
+        {/* Backdrop for mobile */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/30 z-40 lg:hidden "
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
+        {/* Main content */}
+        <div className="flex-1 p-4 lg:p-6 lg:ml-0 flex flex-col items-center -mt-12">
+          {/* Mobile Hamburger */}
+          <div className="lg:hidden mb-4 self-start">
+            <HiMenuAlt3
+              className="w-8 h-8 cursor-pointer text-secondary"
+              onClick={() => setSidebarOpen(true)}
+            />
+          </div>
+
+          <div className="w-full">{children}</div>
+        </div>
       </div>
     </div>
   );
