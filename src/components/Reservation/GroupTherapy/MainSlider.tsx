@@ -69,37 +69,6 @@ const cards = [
 const MainSlider = () => {
   return (
     <div className="w-full">
-      {/* <Swiper
-        slidesPerView={3}
-        grid={{ rows: 3, fill: "row" }}
-        spaceBetween={30}
-        pagination={{ clickable: true }}
-        modules={[Grid, Pagination]}
-        className="mySwiper"
-      >
-        {cards.map((card, index) => (
-          <SwiperSlide key={index}>
-            <div className="border-2 w-[85%] lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto">
-              <Image
-                src={card.img}
-                alt={card.title}
-                width={80}
-                height={80}
-                className="w-20 h-20"
-              />
-              <div className="flex flex-col items-center text-center px-4">
-                <h4 className="text-secondary font-bold text-xl md:text-2xl">
-                  {card.title}
-                </h4>
-                <p className="text-secondary/80 text-[14px] md:text-[18px] mt-1">
-                  {card.description}
-                </p>
-              </div>
-              <CircleNextBtn />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
 
       <Swiper
         spaceBetween={30}
@@ -127,7 +96,6 @@ const MainSlider = () => {
       >
         {cards.map((card, index) => (
           <SwiperSlide key={index}>
-            {/* <div className="border-2 w-[90%] sm:w-[85%] lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto"> */}
             <div
               className="
               border-2

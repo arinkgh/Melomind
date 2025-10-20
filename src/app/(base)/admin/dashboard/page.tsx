@@ -1,16 +1,3 @@
-// import Dashboard from "@/components/Admin/Dashboard/Dashboard";
-// import React from "react";
-
-// const page = () => {
-//   return (
-//     <div className=" w-400 bg-background rounded-[20px]  shadow p-6">
-//         <Dashboard/>
-//     </div>
-//   );
-// };
-
-// export default page;
-
 
 "use client";
 
