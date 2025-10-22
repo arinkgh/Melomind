@@ -14,7 +14,7 @@ interface Props {
 const items = [
   { icon: <MdDashboard className="w-6 h-6" />, text: "داشبورد", href: "/admin/dashboard" },
   { icon: <FaUserGroup className="w-6 h-6" />, text: "گروه درمانی", href: "/admin/group-therapy" },
-  { icon: <RiComputerLine className="w-6 h-6" />, text: "نوبت‌های من", href: "/about" },
+  { icon: <RiComputerLine className="w-6 h-6" />, text: "نوبت‌های من", href: "/admin/my-reservation" },
   { icon: <RiFolderHistoryLine className="w-6 h-6" />, text: "تاریخچه ویزیت", href: "/about" },
   { icon: <PiFolderUser className="w-6 h-6" />, text: "مشخصات کاربری", href: "/about" },
 ];
