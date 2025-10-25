@@ -49,7 +49,7 @@ const Profile = () => {
       />
 
       {/* ===== Profile Info ===== */}
-      <div className="flex flex-col gap-8 bg-white rounded-2xl p-6 shadow-sm w-full">
+      <div className="flex flex-col gap-8 bg-white rounded-2xl p-6  w-full">
         {/* Picture */}
         <div className="flex justify-center md:justify-start">
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md">
