@@ -11,6 +11,7 @@ import { BsPhone } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { GoPerson } from "react-icons/go";
 import { RiEditBoxFill } from "react-icons/ri";
+import ReserveTitle from "@/components/common/ReserveTitle/ReserveTitle";
 
 const Profile = () => {
   const [lastpassword, setlastPassword] = useState("");
@@ -24,11 +25,20 @@ const Profile = () => {
 
   const [phone, setPhone] = useState("");
 
-  // ✅ Allow only numbers for phone
+  //  Allow only numbers for phone
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^0-9]/g, "");
     setPhone(value);
   };
+
+  const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+  const handleOpenModal = (item: string) => {
+  setSelectedItem(item);
+  setTimeout(() => setOpen(true), 0); // ensures re-render after state updates
+};
+
 
   return (
     <div className="flex flex-col gap-8 w-full">
@@ -98,7 +108,10 @@ const Profile = () => {
                   inputMode="numeric"
                 />
               </div>
-              <RiEditBoxFill className="text-secondary/40 w-6 h-6 cursor-pointer" />
+              <RiEditBoxFill
+                className="text-secondary/40 w-6 h-6 cursor-pointer"
+                onClick={() => handleOpenModal("phone")}
+              />
             </div>
           </div>
 
@@ -186,6 +199,47 @@ const Profile = () => {
           </button>
         </div>
       </div>
+
+      {/* ===== Modal ===== */}
+      {open && selectedItem === "phone" && (
+        <div
+          className="fixed inset-0 bg-secondary/40 backdrop-blur-sm flex items-center justify-center z-50 px-2"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="bg-white rounded-xl shadow-lg p-4 sm:p-6 w-[95%] max-w-md sm:max-w-lg md:max-w-xl flex flex-col items-center gap-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* === Modal Content === */}
+            <div className="w-full flex flex-col items-center justify-center  gap-6">
+              {/* title */}
+              <ReserveTitle title="ویرایش شماره موبایل" subtitle="برای ثبت این شماره باید آن را تایید کنید"/>
+              <div className="relative w-full">
+                <BsPhone className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl" />
+                <Input
+                  type="text"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  placeholder="تلفن همراه خود را وارد کنید"
+                  className="p-6 pr-12 rounded-[20px] bg-[#F8FAFB] text-secondary/70 placeholder:text-secondary/40"
+                  inputMode="numeric"
+                />
+              </div>
+            </div>
+
+            {/* === Button === */}
+            <button
+              onClick={() => {
+                setOpen(false);
+                // optionally trigger a “success” modal next if needed
+              }}
+              className="flex items-center justify-center w-full bg-primary/90 transition text-white font-bold hover:bg-primary gap-2 rounded-[110px] py-4 cursor-pointer"
+            >
+              دریافت کد تایید و تغییر شماره
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
