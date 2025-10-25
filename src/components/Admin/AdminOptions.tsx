@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation"; 
 import React from "react";
 import { MdDashboard } from "react-icons/md";
 import { RiComputerLine, RiFolderHistoryLine } from "react-icons/ri";
@@ -20,22 +21,34 @@ const items = [
 ];
 
 export default function AdminOptions({ onNavigate }: Props) {
+  const pathname = usePathname();
+
   return (
     <div className="bg-background rounded-[20px] p-4 w-full">
       <ul className="flex flex-col gap-3">
-        {items.map((it, idx) => (
-          <li key={idx}>
-            <Link
-              href={it.href}
-              onClick={() => onNavigate?.()}
-              className="flex items-center gap-3 p-3 rounded-lg text-secondary hover:bg-white/5 hover:text-primary transition"
-            >
-              {it.icon}
-              <span className="text-base">{it.text}</span>
-            </Link>
-          </li>
-        ))}
+        {items.map((it, idx) => {
+          const isActive = pathname === it.href; 
+          return (
+            <li key={idx}>
+              <Link
+                href={it.href}
+                onClick={() => onNavigate?.()}
+                className={`flex items-center gap-3 p-3 rounded-lg transition ${
+                  isActive
+                    ? "text-primary bg-white/10 font-semibold" 
+                    : "text-secondary hover:text-primary hover:bg-white/5"
+                }`}
+              >
+                <span className={isActive ? "text-primary" : "text-secondary"}>
+                  {it.icon}
+                </span>
+                <span className="text-base">{it.text}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 }
+
