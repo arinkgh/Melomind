@@ -1,7 +1,15 @@
+"use client";
+
 import React from 'react'
 import { ReservationBn } from '../../common/Butttons/ReservationBtn'
+import { useRouter } from 'next/navigation';
 
 const HeroText = () => {
+    const router = useRouter();
+  
+      const handleReservationClick = () => {
+      router.push("/reservation"); 
+    };
   return (
     <div className='lg:h-[380px] md:h-[340px] w-[80%] md:w-[40%] flex flex-col justify-between gap-6 md:gap-0 '>
       <p className='text-primary lg:text-2xl text-[18px]  font-semibold'>
@@ -14,7 +22,7 @@ const HeroText = () => {
          پزشک متخصص مغز و اعصاب و روانپزشک با بیش از ۱۰ سال تجربه. او به بیماران با مشکلاتی مانند صرع، افسردگی، اضطراب کمک می‌کند.
 دکتر اقبالی با استفاده از روش‌های مدرن و تحقیقاتی به بیماران خود کمک می‌کند تا بهبودی در کیفیت زندگی خود بیابند.
       </p>
-      <ReservationBn text="دریافت نوبت"/>
+      <ReservationBn text="دریافت نوبت"  onClick={handleReservationClick}/>
     </div>
   )
 }

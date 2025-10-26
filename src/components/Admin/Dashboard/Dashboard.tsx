@@ -12,6 +12,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { RiEditBoxFill } from "react-icons/ri";
 import mind from "@/../public/Images/mind.svg";
 import alone from "@/../public/Images/alone.svg";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
   const cards = [
@@ -25,6 +26,12 @@ const Dashboard = () => {
     { id: 1, image: mind, title: "نوبت فردی - روان درمانی - آنلاین", date: "۱۴۰۲ / ۰۲ / ۱۸", time: "۱۵:۳۰ - ۱۶:۰۰", price: "۵,۰۰۰,۰۰۰ ریال" },
     { id: 2, image: alone, title: "نوبت زوج درمانی - ویزیت - حضوری", date: "۱۴۰۲ / ۰۶ / ۲۰", time: "۱۰:۳۰ - ۱۱:۰۰", price: "۷,۰۰۰,۰۰۰ ریال" },
   ];
+
+    const router = useRouter();
+  
+      const handleReservationClick = () => {
+      router.push("/reservation"); 
+    };
 
   return (
     <div className="flex flex-col gap-6">
@@ -105,7 +112,7 @@ const Dashboard = () => {
                     {p.time}: <span className="text-primary">{p.price}</span>
                   </p>
                 ))}
-                <ReserveNow text="همین الان رزرو کن" />
+                <ReserveNow text="همین الان رزرو کن"  onClick={handleReservationClick} />
               </div>
             )}
           </div>

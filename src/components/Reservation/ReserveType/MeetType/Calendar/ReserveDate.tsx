@@ -5,8 +5,18 @@ import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
 import ReserveTitle from "@/components/common/ReserveTitle/ReserveTitle";
 import Time from "./Time";
 import CalendarBox from "./CalendarBox";
+import { useRouter } from "next/navigation";
 
 const ReserveDate = () => {
+  const router = useRouter();
+
+  const handlenextpageClick = () => {
+    router.push("/reservation/reservetype/meet-type/date/shop");
+  };
+
+  const handlelastpageClick = () => {
+    router.push("/reservation/reservetype/meet-type");
+  };
   return (
     <div className="bg-custom-svg w-full min-h-[700px] flex flex-col items-center justify-center gap-10 py-12">
       {/* Title */}
@@ -43,12 +53,11 @@ const ReserveDate = () => {
           flex flex-col sm:flex-row justify-between items-center gap-4 mb-10
         "
       >
-        <PrevBtn text="مرحله قبل" />
-        <ReserveNow text="ادامه مراحل رزرو" />
+        <PrevBtn text="مرحله قبل" onClick={handlelastpageClick} />
+        <ReserveNow text="ادامه مراحل رزرو" onClick={handlenextpageClick} />
       </div>
     </div>
   );
 };
 
 export default ReserveDate;
-    

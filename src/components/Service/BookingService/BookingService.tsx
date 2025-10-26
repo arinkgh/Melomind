@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import online from "@/../public/Images/online.svg";
@@ -5,8 +7,14 @@ import tel from "@/../public/Images/tel.svg";
 import meet from "@/../public/Images/meet.svg";
 import test from "@/../public/Images/test.svg";
 import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
+import { useRouter } from "next/navigation";
 
 const BookingService = () => {
+   const router = useRouter();
+    
+        const handleReservationClick = () => {
+        router.push("/reservation"); 
+      };
   const cards = [
     {
       image: online,
@@ -84,7 +92,7 @@ const BookingService = () => {
               </div>
             )}
 
-            <ReserveNow text="همین الان رزرو کن" />
+            <ReserveNow text="همین الان رزرو کن" onClick={handleReservationClick}/>
           </div>
         ))}
       </div>

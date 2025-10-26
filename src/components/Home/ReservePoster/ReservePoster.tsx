@@ -1,7 +1,15 @@
+"use client";
+
 import { ReserveNow } from '@/components/common/Butttons/ReserveNow'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const ReservePoster = () => {
+   const router = useRouter();
+  
+      const handleReservationClick = () => {
+      router.push("/reservation"); 
+    };
   return (
     <div className='container mx-auto rounded-[20px] bg-[#F1F7FA] mt-40 h-[350px] flex flex-col md:flex-row justify-around items-center '>
       {/* text */}
@@ -14,7 +22,7 @@ const ReservePoster = () => {
         </h3>
       </div>
       {/* Button */}
-      <ReserveNow text="همین الان رزرو کن"/>
+      <ReserveNow text="همین الان رزرو کن" onClick={handleReservationClick}/>
       <div></div>
     </div>
   )

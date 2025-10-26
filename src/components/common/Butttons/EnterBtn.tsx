@@ -20,7 +20,7 @@ export function EnterBtn() {
             bg-background text-secondary border-2 font-bold hover:bg-background
             gap-2
             rounded-[110px] md:rounded-full lg:rounded-[110px]
-            py-2 px-3 md:py-2 md:px-2 lg:py-4 lg:px-5 cursor-pointer
+            py-2 px-3 md:py-2 md:px-2 lg:py-5.5 lg:px-5 cursor-pointer
           "
         >
           <FaUser className="w-5 h-5" />

@@ -15,7 +15,7 @@ const ReservationCard = () => {
       ].map(({ img, title }, index) => (
         <div
           key={index}
-          className="border-2 w-[85%]  lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer"
+          className="border-2 w-[85%]  lg:w-[280px] md:h-[340px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer  hover:border-primary transition"
         >
           <Image src={img} alt="#" className="w-20 h-20" />
           <div className="flex flex-col items-center text-center">

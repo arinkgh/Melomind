@@ -1,3 +1,5 @@
+"use client";
+
 import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
 import DetailTitles from "@/components/common/DetailTitles/DetailTitles";
 import React from "react";
@@ -5,8 +7,14 @@ import Image from "next/image";
 import online from "@/../public/Images/online.svg";
 import meet from "@/../public/Images/meet.svg";
 import tel from "@/../public/Images/tel.svg";
+import { useRouter } from "next/navigation";
 
 const HeroText = () => {
+   const router = useRouter();
+  
+      const handleReservationClick = () => {
+      router.push("/reservation"); 
+    };
   return (
     <div className="w-full flex flex-col gap-6 sm:gap-8 px-4 sm:px-6">
       {/* Title */}
@@ -67,7 +75,7 @@ const HeroText = () => {
       </div>
       {/* Button */}
       <div className="mt-4 sm:mt-6">
-        <ReserveNow text="همین الان رزرو کن" />
+        <ReserveNow text="همین الان رزرو کن" onClick={handleReservationClick}/>
       </div>
     </div>
   );

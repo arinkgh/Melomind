@@ -1,9 +1,17 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import sign from "@/../public/Images/sign.svg";
 import { ReservationBn } from "@/components/common/Butttons/ReservationBtn";
+import { useRouter } from "next/navigation";
 
 const ExpertServicesText = () => {
+    const router = useRouter();
+  
+      const handleServiceClick = () => {
+      router.push("/reservation"); 
+    };
   return (
     <div className="w-full lg:w-1/2 flex flex-col lg:gap-0 gap-4 justify-around px-4 lg:px-10 mt-8 lg:mt-0">
       <div className="flex flex-col gap-4">
@@ -15,7 +23,7 @@ const ExpertServicesText = () => {
           استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله...
         </p>
       </div>
-      <ReservationBn text="صفحه خدمات" />
+      <ReservationBn text="صفحه خدمات" onClick={handleServiceClick}/>
     </div>
   );
 };

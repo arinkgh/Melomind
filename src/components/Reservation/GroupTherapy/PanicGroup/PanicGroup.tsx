@@ -1,8 +1,15 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import articleimg from "@/../public/Images/artilecard.svg";
 import { ReserveNow } from "@/components/common/Butttons/ReserveNow";
+import { useRouter } from "next/navigation";
 const PanicGroup = () => {
+    const router = useRouter();
+
+    const handleReservationClick = () => {
+    router.push("/reservation"); 
+  };
   return (
     <div className="bg-custom-svg w-full">
       <div className="container mx-auto flex flex-col items-center gap-30 mb-100">
@@ -91,7 +98,7 @@ const PanicGroup = () => {
             </div>
           </div>
           {/* button */}
-          <ReserveNow text="ثبت نام کنید" />
+          <ReserveNow text="ثبت نام کنید" onClick={handleReservationClick}/>
         </div>
         {/* desc */}
         <div className="w-full flex flex-col justify-between items-center gap-20">
