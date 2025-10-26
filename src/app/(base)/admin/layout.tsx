@@ -12,13 +12,14 @@ export default function AdminLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="w-full bg-custom-svg ">
-      <div className="flex min-h-screen container mx-auto rtl">
+    <div className="w-full min-h-screen bg-custom-svg flex justify-center">
+      {/* Container to center everything */}
+      <div className="container mx-auto flex relative lg:gap-6">
         {/* Sidebar */}
         <div
-          className={`fixed z-50 h-184  bg-background rounded-[20px] shadow p-4 transition-all duration-300 
-          ${sidebarOpen ? "right-0 w-64 -mt-36 h-full" : "-right-64 w-64"} 
-          lg:relative lg:right-0 lg:w-80`}
+          className={`fixed lg:relative z-50 bg-background rounded-[20px] shadow p-4 transition-all duration-300
+            ${sidebarOpen ? "right-0 w-64 h-full" : "-right-64 w-64"}
+            lg:right-0 lg:w-80 lg:h-auto lg:min-h-screen flex-shrink-0`}
         >
           <AdminOptions onNavigate={() => setSidebarOpen(false)} />
         </div>
@@ -26,13 +27,13 @@ export default function AdminLayout({
         {/* Backdrop for mobile */}
         {sidebarOpen && (
           <div
-            className="fixed inset-0 bg-black/30 z-40 lg:hidden "
+            className="fixed inset-0 bg-black/30 z-40 lg:hidden"
             onClick={() => setSidebarOpen(false)}
           />
         )}
 
         {/* Main content */}
-        <div className="flex-1 p-4 lg:p-6 lg:ml-0 flex flex-col items-center -mt-12">
+        <div className="flex-1 flex flex-col p-4 lg:p-6">
           {/* Mobile Hamburger */}
           <div className="lg:hidden mb-4 self-start">
             <HiMenuAlt3
@@ -41,9 +42,83 @@ export default function AdminLayout({
             />
           </div>
 
-          <div className="w-full">{children}</div>
+          {/* Children pages */}
+          <div className="w-full flex flex-col">{children}</div>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client";
+
+// import React from "react";
+// import {
+//   SidebarProvider,
+//   SidebarTrigger,
+//   useSidebar,
+// } from "@/components/ui/sidebar";
+// import { AppSidebar } from "@/components/Admin/AppSidebar";
+
+// // 👇 Create a simple overlay that listens for clicks outside the sidebar
+// function SidebarBackdrop() {
+//   const { open, setOpen } = useSidebar();
+
+//   if (!open) return null;
+
+//   return (
+//     <div
+//       className="fixed inset-0 bg-black/30 z-40 lg:hidden"
+//       onClick={() => setOpen(false)}
+//     />
+//   );
+// }
+
+// export default function AdminLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <div className="w-full min-h-screen bg-custom-svg flex justify-center">
+//       <SidebarProvider>
+//         <div className="container mx-auto flex relative lg:gap-6">
+//           {/* Sidebar */}
+//           <AppSidebar />
+
+//           {/* Overlay for mobile — closes sidebar on click */}
+//           <SidebarBackdrop />
+
+//           {/* Main Content */}
+//           <main className="flex-1 flex flex-col p-4 lg:p-6">
+//             {/* Hamburger for mobile */}
+//             <div className="lg:hidden mb-4 self-start">
+//               <SidebarTrigger className="p-2 border rounded-lg shadow-sm" />
+//             </div>
+
+//             {/* Children pages */}
+//             <div className="w-full flex flex-col">{children}</div>
+//           </main>
+//         </div>
+//       </SidebarProvider>
+//     </div>
+//   );
+// }
