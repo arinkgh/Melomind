@@ -2,7 +2,11 @@ import React from "react";
 import Image from "next/image";
 import articleimg from "../../../public/Images/artilecard.svg";
 
-const ArticleDetail = () => {
+// interface ArticleItem {
+//   id: number;
+//   title: string;
+// }
+const ArticleDetail = () => {  //{ item }: { item: ArticleItem }
   return (
     <div className="bg-custom-svg w-full ">
       <div className=" container mx-auto flex flex-col justify-around items-center gap-10">
@@ -13,6 +17,7 @@ const ArticleDetail = () => {
           </span>
           <h2 className="text-secondary font-extrabold text-3xl md:text-4xl lg:text-5xl">
             تمام آنچه برای سلامت روان خود نیاز دارید
+            {/* {item.title} */}
           </h2>
           <p className="text-secondary text-[18px] md:text-xl">
             توضیحات کوتاه درباره مقاله و نویسنده و تاریخ انتشار و میزان بازدید

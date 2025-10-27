@@ -3,10 +3,20 @@ import Footer from '@/components/common/Footer/Footer'
 import ReservePoster from '@/components/Home/ReservePoster/ReservePoster'
 import React from 'react'
 
-const page = () => {
+// interface Slug {
+//   params: { id: string };
+// }
+
+const page = () => {     //{params} : Slug
+  // const {id} = params;
+  // const res = {
+  //   "id" : 1,
+  //   "title" : "How mindful improves mental health"
+  // }
   return (
     <div>
-      <ArticleDetail/>
+      {/* item={res} */}
+      <ArticleDetail />  
       <ReservePoster/>
       <Footer/>
     </div>
