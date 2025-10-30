@@ -61,7 +61,7 @@ const HeaderItems = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-lg z-50 border-t border-gray-200">
+        <div className="absolute top-24 left-0 w-full bg-white shadow-lg z-50 border-t border-gray-200">
           <ul className="flex flex-col items-center py-4 space-y-3 font-semibold text-secondary">
             {items.map((item, index) => {
               const isActive = pathname === item.link;
