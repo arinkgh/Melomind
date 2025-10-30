@@ -2,7 +2,7 @@ import React from "react";
 
 const ExpertServicesInfo = () => {
   return (
-    <div className="bg-background w-[95%] lg:w-[1200px] rounded-[20px] absolute -top-24 left-1/2 -translate-x-1/2 shadow flex flex-col md:flex-row justify-center items-center gap-6 px-6 py-12">
+    <div className="bg-background w-[95%]  rounded-[20px] absolute -top-24 left-1/2 -translate-x-1/2 shadow flex flex-col md:flex-row justify-center items-center gap-6 px-6 py-12">
       <div className="flex flex-col items-center md:border-l md:border-[#1058700F] md:w-1/3">
         <p className="font-bold text-primary text-4xl md:text-5xl">+۱۰ سال</p>
         <p className="font-bold text-secondary text-xl md:text-2xl">سابقه درمانی</p>

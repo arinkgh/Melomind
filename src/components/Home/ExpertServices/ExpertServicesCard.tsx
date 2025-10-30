@@ -18,7 +18,7 @@ const ExpertServicesCard = () => {
   ];
 
   return (
-    <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-6  md:mt-0 mt-50">
+    <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-6  md:mt-0 mt-50 ">
       {/* right */}
       <div className="flex-1 flex flex-col gap-6">
         {itemsRight.map((item, index) => (

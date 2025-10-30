@@ -10,7 +10,7 @@ const ExpertServices = () => {
       {/* Info */}
       <ExpertServicesInfo />
       {/* Main */}
-      <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-10 lg:gap-0 lg:mt-40 mt-30 mx-auto">
+      <div className="w-full lg:w-[80%] flex flex-col lg:flex-row gap-10 lg:gap-24 lg:mt-40 mt-30 mx-auto">
         <ExpertServicesCard />
         <ExpertServicesText />
       </div>
@@ -19,3 +19,4 @@ const ExpertServices = () => {
 };
 
 export default ExpertServices;
+

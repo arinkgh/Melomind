@@ -13,7 +13,7 @@ const ExpertServicesText = () => {
       router.push("/reservation"); 
     };
   return (
-    <div className="w-full lg:w-1/2 flex flex-col lg:gap-0 gap-4 justify-around px-4 lg:px-10 mt-8 lg:mt-0">
+    <div className="w-full lg:w-1/2 flex flex-col lg:gap-0 gap-4 justify-around px-4 lg:px-10 mt-8 lg:mt-0 md:gap-4">
       <div className="flex flex-col gap-4">
         <Image src={sign} alt="#" className="w-16 h-16" />
         <p className="text-primary/80 font-semibold text-xl md:text-2xl">خدمات ویژه</p>

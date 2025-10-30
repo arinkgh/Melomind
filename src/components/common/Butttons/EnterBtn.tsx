@@ -17,8 +17,9 @@ export function EnterBtn() {
           onClick={() => setOpen(true)}
           className="
             flex items-center justify-center
-            bg-background text-secondary border-2 font-bold hover:bg-background
-            gap-2
+            bg-background text-secondary border-2 font-bold hover:bg-accent/60
+            gap-2 transition-all duration-100 ease-in-out
+          hover:scale-102
             rounded-[110px] md:rounded-full lg:rounded-[110px]
             py-2 px-3 md:py-2 md:px-2 lg:py-5.5 lg:px-5 cursor-pointer
           "

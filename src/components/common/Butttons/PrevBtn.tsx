@@ -11,7 +11,8 @@ export function PrevBtn({ text, onClick }: PrevBtnProps) {
      <div className="flex flex-wrap items-center  md:flex-row">
       <Button 
       onClick={onClick}
-      className="rounded-[110px] cursor-pointer font-bold border-2 w-[140px] text-center text-secondary bg-background hover:bg-background border-[#1058701A] py-6 px-4.5 flex flex-row justify-around">
+      className="rounded-[110px] cursor-pointer font-bold border-2 w-[140px] text-center text-secondary bg-background transition-all duration-200 ease-in-out
+          hover:scale-102 hover:bg-accent/60 border-[#1058701A] py-6 px-4.5 flex flex-row justify-around">
         <ChevronRight className="w-6 h-6 text-primary/80" />
         {text}
       </Button>
