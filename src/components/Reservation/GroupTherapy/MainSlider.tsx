@@ -69,7 +69,6 @@ const cards = [
 const MainSlider = () => {
   return (
     <div className="w-full">
-
       <Swiper
         spaceBetween={30}
         pagination={{ clickable: true }}
@@ -84,11 +83,11 @@ const MainSlider = () => {
             grid: { rows: 3, fill: "row" },
           },
           1024: {
-            slidesPerView: 2, 
+            slidesPerView: 2,
             grid: { rows: 3, fill: "row" },
           },
           1280: {
-            slidesPerView: 3, 
+            slidesPerView: 3,
             grid: { rows: 3, fill: "row" },
           },
         }}
@@ -98,12 +97,12 @@ const MainSlider = () => {
           <SwiperSlide key={index}>
             <div
               className="
-              border-2
+              hover:scale-105 transition
               w-[90%] sm:w-[85%] 
               md:w-[260px] md:h-[330px]
               lg:w-[230px] lg:h-[300px]   
               xl:w-[280px] xl:h-[340px]   
-              rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto"
+              rounded-[20px] flex flex-col items-center justify-around  bg-background py-6 cursor-pointer mx-auto"
             >
               <Image
                 src={card.img}

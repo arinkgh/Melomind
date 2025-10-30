@@ -24,7 +24,7 @@ const ArticleDetail = () => {  //{ item }: { item: ArticleItem }
           </p>
         </div>
         {/* Poster */}
-        <div className=" w-[80%] h-[200px] md:h-[300px] lg:h-[544px] relative flex items-center justify-center">
+        <div className=" w-[80%] h-[200px] md:h-[300px] xl:h-[544px] relative flex items-center justify-center">
           {/* Background green layers */}
           <div className="absolute inset-0 bg-primary/80 w-[97%] h-full  mx-auto mt-4 rounded-[37px] hidden lg:block "></div>
           <div className="absolute inset-3 bg-primary w-[98%] h-full   mx-auto -mt-3 rounded-[20px] hidden lg:block"></div>
