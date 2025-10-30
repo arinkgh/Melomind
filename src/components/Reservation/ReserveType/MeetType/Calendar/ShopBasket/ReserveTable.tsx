@@ -57,7 +57,7 @@ const ReserveTable = () => {
               alt={item.title}
               className="w-8 h-8 lg:w-6 lg:h-6"
             />
-            <p className="text-secondary text-sm lg:text-[10px] xl:text-base font-medium">
+            <p className="text-secondary text-lg md:text-xl lg:text-[14px] xl:text-base font-medium">
               {item.title}
             </p>
           </div>

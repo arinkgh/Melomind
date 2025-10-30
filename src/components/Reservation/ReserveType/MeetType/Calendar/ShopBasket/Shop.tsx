@@ -36,13 +36,13 @@ const Shop = () => {
       </div>
 
       {/* Buttons */}
-      <div className="w-[95%] sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] flex flex-col md:flex-row justify-between items-stretch gap-4 mb-20">
+      <div className="w-[95%] sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] flex flex-col md:flex-row justify-center md:justify-between md:items-stretch items-center gap-4 mb-20 ">
         {/* Buttons stack column on mobile (user requested) */}
-        <div className="w-full md:w-auto">
+        <div className="w-full md:w-auto flex justify-center">
           <PrevBtn text="مرحله قبل" onClick={handlelastpageClick}/>
         </div>
 
-        <div className="w-full md:w-auto flex flex-col md:flex-row gap-3">
+        <div className="w-full md:w-auto flex flex-col md:flex-row gap-3 justify-center items-center">
           <AddReserve text="افزودن نوبت جدید" onClick={handlenewReserveClick}/>
           <ReserveNow text="پرداخت" />
         </div>
