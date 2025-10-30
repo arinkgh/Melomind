@@ -1,14 +1,19 @@
-import React from 'react'
-import HeaderLogin from './HeaderLogin'
-import HeaderItems from './HeaderItems'
+"use client";
+
+import React from "react";
+import HeaderLogin from "./HeaderLogin";
+import HeaderItems from "./HeaderItems";
 
 const HeaderWrapper = () => {
   return (
-    <div className='container mx-auto flex flex-row justify-between  h-36'>
-        <HeaderItems/>
-        <HeaderLogin/>
-    </div>
-  )
-}
+    <header className="container mx-auto flex flex-row justify-between items-center h-20 px-4 mt-6">
+      <HeaderItems />
+      <HeaderLogin />
+    </header>
+  );
+};
 
-export default HeaderWrapper
+export default HeaderWrapper;
+
+
+
