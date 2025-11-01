@@ -59,7 +59,7 @@ const comments = [
 
 const GroupTherapy = () => {
   return (
-    <div className="flex flex-col gap-12 ">
+    <div className="flex flex-col gap-12 overflow-x-hidden"> 
       {/* title */}
       <div className="flex justify-between items-center">
         <AdminTitle
@@ -71,9 +71,7 @@ const GroupTherapy = () => {
 
       {/* slider 1 */}
       <div className="flex flex-col gap-5">
-        <h3 className="text-secondary text-xl font-bold">
-          لیست گروه‌ درمانی‌ها
-        </h3>
+        <h3 className="text-secondary text-xl font-bold">لیست گروه‌ درمانی‌ها</h3>
 
         <Carousel
           opts={{
@@ -81,59 +79,27 @@ const GroupTherapy = () => {
             loop: true,
             slidesToScroll: 1,
             dragFree: false,
-            containScroll: "trimSnaps",
+            // containScroll: "trimSnaps", 
           }}
           className="w-full relative"
         >
-          {/* <CarouselContent className="min-w-0">
-            {cards.map((card, index) => (
-              <CarouselItem
-                key={index}
-                // className="basis-[85%] sm:basis-[60%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3"
-                className="basis-[90%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 mx-auto"
-              >
-                <div className="border-2 w-full h-[300px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto">
-                  <Image
-                    src={card.img}
-                    alt={card.title}
-                    width={80}
-                    height={80}
-                  />
-                  <div className="flex flex-col items-center text-center px-4">
-                    <h4 className="text-secondary font-bold text-lg md:text-xl">
-                      {card.title}
-                    </h4>
-                    <p className="text-secondary/80 text-sm md:text-base mt-1 line-clamp-2">
-                      {card.description}
-                    </p>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent> */}
-
-          <CarouselContent className="min-w-0">
+          <CarouselContent className="min-w-0 flex gap-4">
             {cards.map((card, index) => (
               <CarouselItem
                 key={index}
                 className="
-        basis-[90%]
-        sm:basis-[70%]
-        md:basis-1/2
-        lg:basis-1/2
-        xl:basis-1/3
-        mx-auto
-        max-w-[400px]
-      "
+                  basis-[90%]
+                  sm:basis-[70%]
+                  md:basis-1/2
+                  lg:basis-1/3
+                  xl:basis-1/3
+                  mx-auto
+                  max-w-[350px]
+                "
               >
-                <div className="border-2 w-full max-w-[380px] h-[300px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto">
-                  <Image
-                    src={card.img}
-                    alt={card.title}
-                    width={80}
-                    height={80}
-                  />
-                  <div className="flex flex-col items-center text-center px-4">
+                <div className="border-2 w-full h-[300px] rounded-[20px] flex flex-col items-center justify-around shadow bg-background py-6 cursor-pointer mx-auto">
+                  <Image src={card.img} alt={card.title} width={80} height={80} />
+                  <div className="flex flex-col items-center text-center">
                     <h4 className="text-secondary font-bold text-lg md:text-xl">
                       {card.title}
                     </h4>
@@ -146,11 +112,11 @@ const GroupTherapy = () => {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer">
+          <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer z-10">
             <ChevronLeft size={22} className="text-primary" />
           </CarouselPrevious>
 
-          <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer">
+          <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer z-10">
             <ChevronRight size={22} className="text-primary" />
           </CarouselNext>
         </Carousel>
@@ -168,16 +134,23 @@ const GroupTherapy = () => {
             loop: true,
             slidesToScroll: 1,
             dragFree: false,
-            containScroll: "trimSnaps",
+            // containScroll: "trimSnaps", 
           }}
           className="w-full relative"
         >
-          {/* <CarouselContent className="min-w-0">
+          <CarouselContent className="min-w-0 flex gap-4">
             {comments.map((card, index) => (
               <CarouselItem
                 key={index}
-                // className="basis-[85%] sm:basis-[60%] md:basis-1/2 lg:basis-1/3 xl:basis-1/3"
-                className="basis-[90%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3 mx-auto"
+                className="
+                  basis-[90%]
+                  sm:basis-[70%]
+                  md:basis-1/2
+                  lg:basis-1/3
+                  xl:basis-1/3
+                  mx-auto
+                  max-w-[350px]
+                "
               >
                 <div className="border-2 w-full h-[300px] rounded-[20px] flex flex-col items-stretch p-6 gap-4 justify-start shadow bg-background cursor-pointer mx-auto overflow-hidden">
                   <div className="flex flex-row items-center gap-2">
@@ -198,48 +171,13 @@ const GroupTherapy = () => {
                 </div>
               </CarouselItem>
             ))}
-          </CarouselContent> */}
-
-          <CarouselContent className="min-w-0">
-            {comments.map((card, index) => (
-              <CarouselItem
-                key={index}
-                className="
-        basis-[90%]
-        sm:basis-[70%]
-        md:basis-1/2
-        lg:basis-1/2
-        xl:basis-1/3
-        mx-auto
-        max-w-[400px]
-      "
-              >
-                <div className="border-2 w-full max-w-[380px] h-[300px] rounded-[20px] flex flex-col items-stretch p-6 gap-4 justify-start shadow bg-background cursor-pointer mx-auto overflow-hidden">
-                  <div className="flex flex-row items-center gap-2">
-                    <Image
-                      src={card.img}
-                      alt={card.title}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
-                    <h4 className="text-secondary font-bold text-lg md:text-xl">
-                      {card.title}
-                    </h4>
-                  </div>
-                  <p className="text-secondary/80 text-sm md:text-base mt-1 line-clamp-3">
-                    {card.description}
-                  </p>
-                </div>
-              </CarouselItem>
-            ))}
           </CarouselContent>
 
-          <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer">
+          <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer z-10">
             <ChevronLeft size={22} className="text-primary" />
           </CarouselPrevious>
 
-          <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer">
+          <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-white shadow rounded-full cursor-pointer z-10">
             <ChevronRight size={22} className="text-primary" />
           </CarouselNext>
         </Carousel>
@@ -249,7 +187,3 @@ const GroupTherapy = () => {
 };
 
 export default GroupTherapy;
-
-
-
-
