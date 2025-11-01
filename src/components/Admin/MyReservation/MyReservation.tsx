@@ -39,7 +39,7 @@ const MyReservation = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 overflow-x-hidden">
       {/* ===== Title ===== */}
       <AdminTitle
         subtitle="نوبت‌های جاری من"
@@ -50,12 +50,24 @@ const MyReservation = () => {
       <div className="border-2 rounded-[20px] bg-background p-3 sm:p-4 flex flex-col gap-3 lg:h-140">
         {/* Header (visible from md) */}
         <div className="hidden md:flex font-bold w-full h-12 text-secondary">
-          <div className="w-80 flex items-center px-3">عنوان</div>
-          <div className="w-40 flex justify-center items-center">تاریخ</div>
-          <div className="w-40 flex justify-center items-center">زمان</div>
-          <div className="w-40 flex justify-center items-center">قیمت</div>
-          <div className="w-40 flex justify-center items-center">نوع جلسه</div>
-          <div className="w-40 flex justify-center items-center">عملیات</div>
+          <div className="flex-grow min-w-0 flex items-center px-3 max-w-[320px]">
+            عنوان
+          </div>
+          <div className="flex-grow min-w-0 flex justify-center items-center max-w-[160px]">
+            تاریخ
+          </div>
+          <div className="flex-grow min-w-0 flex justify-center items-center max-w-[160px]">
+            زمان
+          </div>
+          <div className="flex-grow min-w-0 flex justify-center items-center max-w-[160px]">
+            قیمت
+          </div>
+          <div className="flex-grow min-w-0 flex justify-center items-center max-w-[160px]">
+            نوع جلسه
+          </div>
+          <div className="flex-grow min-w-0 flex justify-center items-center max-w-[160px]">
+            عملیات
+          </div>
         </div>
 
         {/* Items */}
@@ -65,55 +77,61 @@ const MyReservation = () => {
             className="bg-secondary/5 rounded-[20px] w-full flex flex-col md:flex-row md:h-12 cursor-pointer font-normal transition hover:bg-secondary/10"
           >
             {/* Title */}
-            <div className="flex items-center gap-2 p-3 md:w-80">
+            <div className="flex items-center gap-2 p-3 md:flex-grow md:max-w-[320px] min-w-0">
               <Image
                 src={item.image}
                 alt={item.title}
                 className="w-8 h-8 md:w-6 md:h-6"
               />
-              <p className="text-secondary text-sm md:text-xs xl:text-base font-medium">
+              <p className="text-secondary text-sm md:text-xs xl:text-base font-medium truncate">
                 {item.title}
               </p>
             </div>
 
             {/* Date */}
-            <div className="flex justify-between md:justify-center items-center p-3 md:w-40">
+            <div className="flex justify-between md:justify-center items-center p-3 md:flex-grow md:max-w-[160px] min-w-0">
               <span className="md:hidden text-secondary/70 font-semibold text-sm">
                 تاریخ:
               </span>
-              <p className="text-secondary text-sm font-medium">{item.date}</p>
+              <p className="text-secondary text-sm font-medium truncate">
+                {item.date}
+              </p>
             </div>
 
             {/* Time */}
-            <div className="flex justify-between md:justify-center items-center p-3 md:w-40">
+            <div className="flex justify-between md:justify-center items-center p-3 md:flex-grow md:max-w-[160px] min-w-0">
               <span className="md:hidden text-secondary/70 font-semibold text-sm">
                 زمان:
               </span>
-              <p className="text-secondary text-sm font-medium">{item.time}</p>
+              <p className="text-secondary text-sm font-medium truncate">
+                {item.time}
+              </p>
             </div>
 
             {/* Price */}
-            <div className="flex justify-between md:justify-center items-center p-3 md:w-40">
+            <div className="flex justify-between md:justify-center items-center p-3 md:flex-grow md:max-w-[160px] min-w-0">
               <span className="md:hidden text-secondary/70 font-semibold text-sm">
                 قیمت:
               </span>
-              <p className="text-secondary text-sm font-medium">{item.price}</p>
+              <p className="text-secondary text-sm font-medium truncate">
+                {item.price}
+              </p>
             </div>
 
             {/* Meet Type */}
-            <div className="flex items-center gap-2 p-3 md:w-40">
+            <div className="flex items-center gap-2 p-3 md:flex-grow md:max-w-[160px] min-w-0">
               <Image
                 src={item.meetTypeImg}
                 alt={item.meetType}
                 className="w-7 h-7 md:w-5 md:h-5"
               />
-              <p className="text-secondary text-sm md:text-xs xl:text-base font-medium">
+              <p className="text-secondary text-sm md:text-xs xl:text-base font-medium truncate">
                 {item.meetType}
               </p>
             </div>
 
             {/* Actions */}
-            <div className="flex items-center justify-center gap-4 p-3 md:w-40">
+            <div className="flex items-center justify-center gap-4 p-3 md:flex-grow md:max-w-[160px] min-w-0">
               <RiEditBoxFill className="text-secondary/40 w-6 h-6 cursor-pointer" />
               <FaRegTrashAlt
                 className="text-[#FF2424] w-5 h-5 cursor-pointer"
