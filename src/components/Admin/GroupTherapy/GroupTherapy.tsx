@@ -88,20 +88,21 @@ const GroupTherapy = () => {
               1024: { slidesPerView: 2.2 },
               1280: { slidesPerView: 3 },
             }}
-            className="w-full"
+            className="w-full group-therapy-slider"
           >
             {cards.map((card, index) => (
-              
-
-              <SwiperSlide key={index} className="!flex justify-center">
-                <div className="w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] h-[220px] rounded-[20px] flex flex-col items-center justify-around bg-background py-6 cursor-pointer">
+              <SwiperSlide
+                key={index}
+                className="!flex justify-center border-2 group-therapy-slider-card"
+              >
+                <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[60%] h-[220px] rounded-[20px] flex flex-col items-center justify-around bg-background py-6 cursor-pointer mx-auto">
                   <Image
                     src={card.img}
                     alt={card.title}
                     width={60}
                     height={60}
                   />
-                  <div className="flex flex-col items-center text-center">
+                  <div className="flex flex-col items-center text-center ">
                     <h4 className="text-secondary font-bold text-base md:text-lg">
                       {card.title}
                     </h4>
@@ -146,13 +147,14 @@ const GroupTherapy = () => {
               1024: { slidesPerView: 2.2 },
               1280: { slidesPerView: 3 },
             }}
-            className="w-full"
+            className="w-full group-therapy-slider"
           >
             {comments.map((card, index) => (
-             
-
-              <SwiperSlide key={index} className="!flex justify-center">
-                <div className="w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] h-[220px] rounded-[20px] flex flex-col items-stretch p-5 gap-3 justify-start bg-background cursor-pointer overflow-hidden">
+              <SwiperSlide
+                key={index}
+                className="!flex justify-center border-2 group-therapy-slider-card"
+              >
+                <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[65%] xl:w-[60%] h-[220px] rounded-[20px] flex flex-col items-center justify-around bg-background py-6 cursor-pointer mx-auto">
                   <div className="flex flex-row items-center gap-2">
                     <Image
                       src={card.img}
@@ -187,9 +189,6 @@ const GroupTherapy = () => {
 };
 
 export default GroupTherapy;
-
-
-
 
 
 
