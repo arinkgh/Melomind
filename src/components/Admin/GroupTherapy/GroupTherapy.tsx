@@ -56,7 +56,7 @@ const comments = [
 
 const GroupTherapy = () => {
   return (
-    <div className="flex flex-col gap-12 container mx-auto px-4">
+    <div className="flex flex-col gap-12  px-4 ">
       {/* Title */}
       <div className="flex lg:flex-row  justify-between items-center  gap-4">
         <AdminTitle
@@ -76,8 +76,8 @@ const GroupTherapy = () => {
           <Swiper
             modules={[Navigation]}
             navigation={{
-              prevEl: ".swiper-button-prev1",
-              nextEl: ".swiper-button-next1",
+              prevEl: ".swiper-button-next1",
+              nextEl: ".swiper-button-prev1",
             }}
             spaceBetween={10}
             loop={true}
@@ -135,8 +135,8 @@ const GroupTherapy = () => {
           <Swiper
             modules={[Navigation]}
             navigation={{
-              prevEl: ".swiper-button-prev2",
-              nextEl: ".swiper-button-next2",
+              prevEl: ".swiper-button-next2",
+              nextEl: ".swiper-button-prev2",
             }}
             spaceBetween={10}
             loop={true}
@@ -189,6 +189,3 @@ const GroupTherapy = () => {
 };
 
 export default GroupTherapy;
-
-
-

@@ -148,8 +148,8 @@ const Dashboard = () => {
 
               {/* Actions */}
               <div className="flex justify-center items-center gap-4 p-3 border-t md:border-t-0 md:w-[80px]">
-                <RiEditBoxFill className="text-secondary/40 w-5 h-5 md:w-6 md:h-6" />
-                <FaRegTrashAlt className="text-[#FF2424] w-4 h-4 md:w-5 md:h-5" />
+                <RiEditBoxFill className="text-secondary/40 w-5 h-5 md:w-6 md:h-6 cursor-pointer" />
+                <FaRegTrashAlt className="text-[#FF2424] w-4 h-4 md:w-5 md:h-5 cursor-pointer" />
               </div>
             </div>
           ))}
