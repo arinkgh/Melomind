@@ -14,7 +14,6 @@ const page = () => {
       <NewArticles/>
       <ListArticle/>
       <ReservePoster/>
-      <Footer/>
     </div>
   )
 }

@@ -16,7 +16,6 @@ const page = () => {
       <BookingService/>
       <Questions/>
       <ReservePoster/>
-      <Footer/>
     </div>
   )
 }

@@ -18,7 +18,6 @@ const page = () => {     //{params} : Slug
       {/* item={res} */}
       <ArticleDetail />  
       <ReservePoster/>
-      <Footer/>
     </div>
   )
 }

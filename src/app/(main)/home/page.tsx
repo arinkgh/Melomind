@@ -14,7 +14,6 @@ const page = () => {
       <ExpertServices/>
       <Questions/>
       <ReservePoster/>
-      <Footer/>
     </div>
   )
 }
