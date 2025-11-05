@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const GroupTherapy = () => {
   const router = useRouter();
   const handlelastpageClick = () => {
-    router.push("/home");
+    router.push("/");
   };
   return (
     <div className="bg-custom-svg  w-full">

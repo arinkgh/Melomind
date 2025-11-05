@@ -14,7 +14,7 @@ const Reservation = () => {
   };
 
    const handlelastpageClick = () => {
-    router.push("/home");
+    router.push("/");
   };
 
   return (
