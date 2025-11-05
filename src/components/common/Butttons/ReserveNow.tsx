@@ -1,12 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { ButtonProps } from "@/types/ButtonsType";
 import { ChevronLeft } from "lucide-react";
 
-interface ReservationBnProps {
-  text: string;
-  onClick?: () => void;
-}
-
-export function ReserveNow({ text, onClick }: ReservationBnProps) {
+export function ReserveNow({ text, onClick }: ButtonProps) {
   return (
     <div className="flex flex-wrap items-center gap-1 md:flex-row">
       <Button 

@@ -22,7 +22,7 @@ const Footer = () => {
         {/* col-2 */}
         <div className="w-full lg:w-1/4 flex flex-col items-center lg:items-start gap-3">
           <h4 className="font-black text-xl text-primary/80">لینک‌های مهم</h4>
-          <Link href="/home" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
+          <Link href="/" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
             صفحه اصلی
           </Link>
           <Link href="/about" className="font-semibold text-[18px] text-secondary hover:text-primary/80">

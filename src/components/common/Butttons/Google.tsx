@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { ButtonProps } from "@/types/ButtonsType";
 import { FcGoogle } from "react-icons/fc";
 
-interface GoogleProps {
-  text: string;
-}
 
-export function Google({ text }: GoogleProps) {
+export function Google({ text }: ButtonProps) {
   return (
     <div className="flex flex-wrap items-center gap-1 md:flex-row">
       <Button className="text-secondary border-2 w-full bg-background rounded-[110px] cursor-pointer text-center font-bold transition-all duration-200 ease-in-out

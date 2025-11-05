@@ -1,11 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { ButtonProps } from "@/types/ButtonsType";
 
-interface ReservationBnProps {
-  text: string;
-  onClick?: () => void;
-}
-
-export function ReservationBn({ text, onClick  }: ReservationBnProps) {
+export function ReservationBn({ text, onClick  }: ButtonProps) {
   return (
     <div className="flex flex-wrap items-center gap-2 md:flex-row">
       <Button 

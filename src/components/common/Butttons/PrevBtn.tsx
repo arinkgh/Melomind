@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { ButtonProps } from "@/types/ButtonsType";
 import { ChevronRight } from "lucide-react";
 
-interface PrevBtnProps {
-  text: string;
-  onClick?: () => void;
-}
 
-export function PrevBtn({ text, onClick }: PrevBtnProps) {
+export function PrevBtn({ text, onClick }: ButtonProps) {
   return (
      <div className="flex flex-wrap items-center  md:flex-row">
       <Button 

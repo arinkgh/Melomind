@@ -1,13 +1,10 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
+import { ButtonProps } from "@/types/ButtonsType";
 
-interface ReservationBnProps {
-  text: string;
-  onClick?: () => void;
-}
 
-export function AddReserve({ text, onClick }: ReservationBnProps) {
+export function AddReserve({ text, onClick }: ButtonProps) {
   return (
     <div className="flex flex-wrap items-center gap-1 md:flex-row">
       <Button
