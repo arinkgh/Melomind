@@ -1,28 +1,19 @@
-
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { MdDashboard } from "react-icons/md";
-import { RiComputerLine, RiFolderHistoryLine } from "react-icons/ri";
-import { FaUserGroup } from "react-icons/fa6";
-import { PiFolderUser } from "react-icons/pi";
+import { items } from "@/utils/constants/AdminPanelItems";
 
 interface Props {
   horizontal?: boolean; // <— new prop to switch between sidebar & topbar
   onNavigate?: () => void;
 }
 
-const items = [
-  { icon: <MdDashboard className="w-5 h-5" />, text: "داشبورد", href: "/admin/dashboard" },
-  { icon: <FaUserGroup className="w-5 h-5" />, text: "گروه درمانی", href: "/admin/group-therapy" },
-  { icon: <RiComputerLine className="w-5 h-5" />, text: "نوبت‌های من", href: "/admin/my-reservation" },
-  { icon: <RiFolderHistoryLine className="w-5 h-5" />, text: "تاریخچه ویزیت", href: "/admin/visit-history" },
-  { icon: <PiFolderUser className="w-5 h-5" />, text: "مشخصات کاربری", href: "/admin/profile" },
-];
-
-export default function AdminOptions({ horizontal = false, onNavigate }: Props) {
+export default function AdminOptions({
+  horizontal = false,
+  onNavigate,
+}: Props) {
   const pathname = usePathname();
 
   return (
@@ -64,20 +55,10 @@ export default function AdminOptions({ horizontal = false, onNavigate }: Props) 
   );
 }
 
-
-
-
-
-
-
-
-
-
-
 // "use client";
 
 // import Link from "next/link";
-// import { usePathname } from "next/navigation"; 
+// import { usePathname } from "next/navigation";
 // import React from "react";
 // import { MdDashboard } from "react-icons/md";
 // import { RiComputerLine, RiFolderHistoryLine } from "react-icons/ri";
@@ -103,7 +84,7 @@ export default function AdminOptions({ horizontal = false, onNavigate }: Props) 
 //     <div className="bg-background rounded-[20px] p-4 w-full ">
 //       <ul className="flex flex-col gap-3">
 //         {items.map((it, idx) => {
-//           const isActive = pathname === it.href; 
+//           const isActive = pathname === it.href;
 //           return (
 //             <li key={idx}>
 //               <Link
@@ -111,7 +92,7 @@ export default function AdminOptions({ horizontal = false, onNavigate }: Props) 
 //                 onClick={() => onNavigate?.()}
 //                 className={`flex items-center gap-3 p-3 rounded-lg transition ${
 //                   isActive
-//                     ? "text-primary bg-white/10 font-semibold" 
+//                     ? "text-primary bg-white/10 font-semibold"
 //                     : "text-secondary hover:text-primary hover:bg-white/5"
 //                 }`}
 //               >
@@ -127,7 +108,3 @@ export default function AdminOptions({ horizontal = false, onNavigate }: Props) 
 //     </div>
 //   );
 // }
-
-
-
-

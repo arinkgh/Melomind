@@ -3,6 +3,7 @@ import React from "react";
 import check from "@/../public/Images/Check.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { items1 } from "@/utils/constants/ServiceAddText";
 
 const AdditionalDescP1 = () => {
   return (
@@ -17,19 +18,16 @@ const AdditionalDescP1 = () => {
       </span>
 
       <div className="mt-4 w-full flex flex-col gap-4">
-        {[
-          "مزیت شماره یک استفاده از خدمات ملومایند",
-          "مزیت شماره دو استفاده از خدمات ملومایند",
-          "مزیت شماره سه استفاده از خدمات ملومایند",
-          "مزیت شماره چهار استفاده از خدمات ملومایند",
-          "مزیت شماره پنج استفاده از خدمات ملومایند",
-        ].map((text, index) => (
+        {items1.map((text, index) => (
           <div
             key={index}
             className="flex flex-row justify-start items-start gap-2 w-full"
           >
             <Image src={check} alt="Check" className="w-8 h-8" />
-            <Link href={`/${index + 1}`} className="text-secondary text-lg font-bold">
+            <Link
+              href={`/${index + 1}`}
+              className="text-secondary text-lg font-bold"
+            >
               {text}
             </Link>
           </div>

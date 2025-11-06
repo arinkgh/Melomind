@@ -1,12 +1,8 @@
+import { TitleProps } from "@/types/TitleTypes";
 import React from "react";
 
-type AdminTitleProps = {
-  subtitle: string;
-  title: string;
-  className?: string; 
-};
 
-const AdminTitle = ({ subtitle, title }: { subtitle: string; title: string }) => {
+const AdminTitle = ({ subtitle, title }: TitleProps) => {
   return (
     <div className="h-auto w-full flex flex-col gap-2">
       <h3 className="text-secondary text-2xl sm:text-3xl md:text-4xl font-black">

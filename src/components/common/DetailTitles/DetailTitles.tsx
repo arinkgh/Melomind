@@ -1,12 +1,8 @@
+import { TitleProps } from "@/types/TitleTypes";
 import React from "react";
 
-type DetailTitlesProps = {
-  subtitle: string;
-  title: string;
-  className?: string; 
-};
 
-const DetailTitles = ({ subtitle, title }: { subtitle: string; title: string }) => {
+const DetailTitles = ({ subtitle, title }: TitleProps) => {
   return (
     <div className="h-auto w-full flex flex-col gap-2">
       <span className="text-primary/80 text-lg sm:text-xl md:text-2xl font-semibold">

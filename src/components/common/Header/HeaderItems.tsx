@@ -6,17 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { items } from "@/utils/constants/HeaderNavLinks";
 
 const HeaderItems = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const items = [
-    { title: "صفحه اصلی", link: "/" },
-    { title: "درباره ما", link: "/about-us" },
-    { title: "خدمات", link: "/service" },
-    { title: "بلاگ", link: "/article" },
-  ];
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 

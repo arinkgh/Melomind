@@ -1,12 +1,8 @@
+import { TitleProps } from '@/types/TitleTypes'
 import React from 'react'
 
 
-type ReserveTitleProps = {
-  subtitle: string;
-  title: string;
-  className?: string; 
-};
-const ReserveTitle = ({ subtitle, title }: { subtitle: string; title: string }) => {
+const ReserveTitle = ({ subtitle, title }: TitleProps) => {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4 py-6">
       <h2 className="text-secondary font-extrabold text-3xl md:text-4xl lg:text-5xl text-center">

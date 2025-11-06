@@ -3,7 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/../public/Images/Logo.svg";
+import { col1, col2, col3, col4 } from "@/utils/constants/FooterItems";
+
+
 
 const Footer = () => {
   return (
@@ -11,62 +13,47 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row justify-between gap-10">
         {/* col-1 */}
         <div className="w-full lg:w-1/4 flex flex-col gap-4 items-center lg:items-start text-center lg:text-right">
-          <Image src={logo} alt="Melomind Logo" className="w-32 h-auto" />
+          <Image src={col1.image} alt="Melomind Logo" className="w-32 h-auto" />
           <p className="font-semibold text-[16px] text-secondary leading-relaxed">
-            مراجعه به یک مرکز مشاوره و روانشناسی می‌تواند به افراد کمک کند تا
-            بهترین راه‌حل‌ها را برای مشکلاتشان پیدا کنند و به زندگی سالم‌تری
-            دست یابند.
+            {col1.text}
           </p>
         </div>
 
         {/* col-2 */}
         <div className="w-full lg:w-1/4 flex flex-col items-center lg:items-start gap-3">
-          <h4 className="font-black text-xl text-primary/80">لینک‌های مهم</h4>
-          <Link href="/" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
-            صفحه اصلی
-          </Link>
-          <Link href="/about" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
-            درباره ما
-          </Link>
-          <Link href="/service" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
-            خدمات
-          </Link>
-          <Link href="/article" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
-            بلاگ
-          </Link>
+          <h4 className="font-black text-xl text-primary/80">{col2.title}</h4>
+          {col2.items.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className="font-semibold text-[18px] text-secondary hover:text-primary/80"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
         {/* col-3 */}
         <div className="w-full lg:w-1/4 flex flex-col items-center lg:items-start gap-3">
-          <h4 className="font-black text-xl text-primary/80">مسیرهای ارتباطی</h4>
-          <a href="tel:01144430438" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
-            شماره تلفن: ۰۱۱۴۴۴۳۰۴۳۸
-          </a>
-          <a href="tel:09385668186" className="font-semibold text-[18px] text-secondary hover:text-primary/80">
-            شماره موبایل: ۰۹۳۸۵۶۶۸۱۸۶
-          </a>
-          <a
-            href="https://instagram.com/melomind.ir"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-[18px] text-secondary hover:text-primary/80"
-          >
-            اینستاگرام: Melomind.ir
-          </a>
-          <a
-            href="mailto:info@melomind.ir"
-            className="font-semibold text-[18px] text-secondary hover:text-primary/80"
-          >
-            ایمیل: info@melomind.ir
-          </a>
+          <h4 className="font-black text-xl text-primary/80">{col3.title}</h4>
+          {col3.items.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              target={item.target || "_self"}
+              rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
+              className="font-semibold text-[18px] text-secondary hover:text-primary/80"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
 
         {/* col-4 */}
         <div className="w-full lg:w-1/4 flex flex-col items-center lg:items-start gap-3">
-          <h4 className="font-black text-xl text-primary/80">آدرس</h4>
+          <h4 className="font-black text-xl text-primary/80">{col4.title}</h4>
           <p className="font-semibold text-[16px] text-secondary leading-relaxed">
-            مازندران، ساری، بلوار خزر، روبروی فرش مشهد، ساختمان پزشکان اکسیر،
-            طبقه پنجم، واحد 511
+            {col4.text}
           </p>
         </div>
       </div>
