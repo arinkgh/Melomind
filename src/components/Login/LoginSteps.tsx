@@ -11,7 +11,7 @@ const LoginSteps = () => {
   return (
     <div className=' w-full'>
       {/* step 1 */}
-      {/* <Entrance/> */}
+      <Entrance/>
       {/* step 2 */}
       {/* <VerificationCode/> */}
       {/* step 3 */}
@@ -23,7 +23,7 @@ const LoginSteps = () => {
       {/* step 6 */}
       {/* <NoneExist/> */}
       {/* step 7 */}
-      <CreateAccount/>
+      {/* <CreateAccount/> */}
     </div>
   )
 }
