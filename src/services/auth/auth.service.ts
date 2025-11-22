@@ -4,7 +4,8 @@ import {
   LoginResponse,
   CheckUserResponse,
   RegisterRequest,
-  RegisterResponse
+  RegisterResponse,
+  VerifyOTP
 } from "./auth.types";
 
 // export const authService = {
@@ -46,24 +47,17 @@ export const authService = {
     return data;
   },
 
-  verifyOtp: async (payload: { mobile: string; code: number; forgot_password?: boolean }) => {
+  verifyOtp: async (payload: VerifyOTP) => {
     const { data } = await axiosClient.post('/auth/verify-otp', payload);
     return data;
   },
 
-  register: async (payload: {
-    token: string;
-    mobile: string;
-    name: string;
-    lastname: string;
-    email?: string;
-    password?: string;
-  }) => {
+  register: async (payload: RegisterRequest) => {
     const { data } = await axiosClient.post('/auth/register', payload);
     return data;
   },
 
-  login: async (payload: { mobile: string; password?: string }) => {
+  login: async (payload: LoginRequest) => {
     const { data } = await axiosClient.post('/auth/login', payload);
     return data;
   },

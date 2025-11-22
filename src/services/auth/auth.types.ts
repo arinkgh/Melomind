@@ -3,7 +3,6 @@ export interface LoginRequest {
   password: string;
 }
 
-
 export interface LoginResponse {
   success: boolean;
   token?: string;
@@ -18,8 +17,8 @@ export interface CheckUserResponse {
       [mobile: string]: {
         code: number;
         expiry: string;
-      }
-    }
+      };
+    };
   };
 }
 
@@ -28,8 +27,8 @@ export interface RegisterRequest {
   mobile: string;
   name: string;
   lastname: string;
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 export interface RegisterResponse {
@@ -39,4 +38,10 @@ export interface RegisterResponse {
     fa: string;
     en: string;
   };
+}
+
+export interface VerifyOTP {
+  mobile: string;
+  code: number;
+  forgot_password?: boolean;
 }
