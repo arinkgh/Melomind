@@ -4,22 +4,63 @@ import { MdOutlineEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { BiHide, BiShow } from "react-icons/bi";
 import { BsPhone } from "react-icons/bs";
+import { FaUser, FaUserTie } from "react-icons/fa";
 import { ReserveNow } from "../common/Butttons/ReserveNow";
 import { Google } from "../common/Butttons/Google";
+import { useAuthStore } from "@/services/auth/auth.store";
 
 const CreateAccount = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
 
-  // ✅ Phone number input validation (only numbers allowed)
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[^0-9]/g, ""); // remove all non-digits
-    setPhone(value);
+  // const registerUser = useAuthStore((s) => s.registerUser);
+
+  // const handleRegister = () => {
+  //   const payload = {
+  //     mobile: phone,
+  //     name,
+  //     lastname,
+  //     email,
+  //     password,
+  //   };
+
+  //   registerUser(payload);
+  // };
+
+  const { registerUser, otpToken, mobile } = useAuthStore();
+
+  const handleRegister = async () => {
+  if (!otpToken) {
+    alert("ابتدا کد را تایید کنید.");
+    return;
+  }
+
+  const payload = {
+    token: otpToken,
+    mobile: phone || mobile, // phone از input یا از store
+    name,
+    lastname,
+    email,
+    password,
   };
 
-  const handleRegister = () => {
-    console.log("Register clicked");
+  const ok = await registerUser(payload);
+  if (ok) {
+    // ثبت‌نام موفق — جلو برو (مثلاً مرحله ورود یا داشبورد)
+    alert("success")
+  } else {
+    // خطا — پیام مناسب نشان بده
+    alert("error")
+  }
+};
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^0-9]/g, "");
+    setPhone(value);
   };
 
   const handleRegisterWithGoogle = () => {
@@ -45,12 +86,41 @@ const CreateAccount = () => {
 
       {/* inputs */}
       <div className="flex flex-col w-full items-center">
+        {/* name & lastname side by side */}
+        <div className="flex w-full max-w-md md:max-w-3xl gap-4 my-4">
+          {/* Name */}
+          <div className="relative flex-1">
+            <FaUser className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl" />
+            <Input
+              type="text"
+              placeholder="نام خود را وارد کنید"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="p-6 pr-12 rounded-[20px] bg-[#F8FAFB] text-secondary/50 placeholder:text-secondary/40"
+            />
+          </div>
+
+          {/* Lastname */}
+          <div className="relative flex-1">
+            <FaUserTie className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl" />
+            <Input
+              type="text"
+              placeholder="نام خانوادگی خود را وارد کنید"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+              className="p-6 pr-12 rounded-[20px] bg-[#F8FAFB] text-secondary/50 placeholder:text-secondary/40"
+            />
+          </div>
+        </div>
+
         {/* email */}
         <div className="relative w-full max-w-md md:max-w-3xl my-4">
           <MdOutlineEmail className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl" />
           <Input
             type="email"
             placeholder="آدرس ایمیل خود را وارد کنید"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="p-6 pr-12 rounded-[20px] bg-[#F8FAFB] text-secondary/50 placeholder:text-secondary/40"
           />
         </div>

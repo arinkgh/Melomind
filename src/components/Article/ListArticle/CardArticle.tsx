@@ -1,11 +1,15 @@
+"use client";
+
 import { subscribe } from "diagnostics_channel";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import articleimg from "@/../public/Images/artilecard.svg";
 import Image from "next/image";
 import { CiCalendar } from "react-icons/ci";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { articleService } from "@/services/article/article.service";
+import { IArticleCard } from "@/services/article/article.types";
 const CardArticle = () => {
   const items = [
     {
@@ -25,6 +29,31 @@ const CardArticle = () => {
       category: "دسته‌ بندی  اعتیاد",
     },
   ];
+
+  // const [items, setItems] = useState<IArticleCard[]>([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const { data } = await articleService.getQuotes();
+
+  //       const formatted: IArticleCard[] = data.map((q) => ({
+  //         image: articleimg,
+  //         title: q.author,
+  //         desc: q.quote,
+  //         shareDate: "۱۲ اردیبهشت ۱۴۰۲",
+  //         subscribeCount: "۸،۴۵۶ نفر",
+  //         category: "بریکینگ بد",
+  //       }));
+
+  //       setItems(formatted);
+  //     } catch (error) {
+  //       console.log("API Error:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="w-full flex flex-col gap-10">
