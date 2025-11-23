@@ -23,7 +23,7 @@ export interface CheckUserResponse {
 }
 
 export interface RegisterRequest {
-  token: string;
+  token?: string;
   mobile: string;
   name: string;
   lastname: string;
@@ -38,10 +38,28 @@ export interface RegisterResponse {
     fa: string;
     en: string;
   };
+  data?: {
+    token?: string;
+  };
 }
 
-export interface VerifyOTP {
+export interface VerifyOTPRequest {
   mobile: string;
   code: number;
   forgot_password?: boolean;
+}
+
+export interface VerifyOTPResponse {
+  success: boolean;
+  token?: string;
+  data?: {
+    token?: string;
+  };
+}
+
+export interface ApiResponse<T = any> {
+  success?: boolean;
+  data?: T;
+  token?: string;
+  exists?: boolean;
 }

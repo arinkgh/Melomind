@@ -51,6 +51,7 @@ const LoginSteps = () => {
       {step === 5 && <NewPassword />}
       {step === 6 && <NoneExist />}
       {step === 7 && <CreateAccount />}
+      {step === 9 && <div>Logged in - redirect to Dashboard</div>}
     </div>
   );
 };

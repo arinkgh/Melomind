@@ -17,50 +17,28 @@ const CreateAccount = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
 
-  // const registerUser = useAuthStore((s) => s.registerUser);
-
-  // const handleRegister = () => {
-  //   const payload = {
-  //     mobile: phone,
-  //     name,
-  //     lastname,
-  //     email,
-  //     password,
-  //   };
-
-  //   registerUser(payload);
-  // };
-
-  const { registerUser, otpToken, mobile } = useAuthStore();
-
-  const handleRegister = async () => {
-  if (!otpToken) {
-    alert("ابتدا کد را تایید کنید.");
-    return;
-  }
-
-  const payload = {
-    token: otpToken,
-    mobile: phone || mobile, // phone از input یا از store
-    name,
-    lastname,
-    email,
-    password,
-  };
-
-  const ok = await registerUser(payload);
-  if (ok) {
-    // ثبت‌نام موفق — جلو برو (مثلاً مرحله ورود یا داشبورد)
-    alert("success")
-  } else {
-    // خطا — پیام مناسب نشان بده
-    alert("error")
-  }
-};
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^0-9]/g, "");
     setPhone(value);
+  };
+
+  const { registerUser, mobile: storeMobile } = useAuthStore();
+
+  const handleRegister = async () => {
+    const payload = {
+      mobile: phone || storeMobile,
+      name,
+      lastname,
+      email,
+      password,
+    };
+
+    const ok = await registerUser(payload);
+    if (ok) {
+      console.log("registered -> moved to verification");
+    } else {
+      alert("ثبت‌نام ناموفق بود");
+    }
   };
 
   const handleRegisterWithGoogle = () => {
@@ -68,27 +46,22 @@ const CreateAccount = () => {
   };
 
   const handleEnterAccount = () => {
-    console.log("Go to Login page");
+    window.location.reload();
   };
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-8 px-4">
-      {/* title */}
       <div className="flex flex-col items-center justify-center gap-5 mb-8 text-center">
         <p className="text-secondary font-extrabold text-2xl md:text-4xl">
           ایجاد حساب کاربری
         </p>
         <span className="text-secondary/60 font-semibold text-sm md:text-[18px]">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-          استفاده از طراحان گرافیک است...
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...
         </span>
       </div>
 
-      {/* inputs */}
       <div className="flex flex-col w-full items-center">
-        {/* name & lastname side by side */}
         <div className="flex w-full max-w-md md:max-w-3xl gap-4 my-4">
-          {/* Name */}
           <div className="relative flex-1">
             <FaUser className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl" />
             <Input
@@ -100,7 +73,6 @@ const CreateAccount = () => {
             />
           </div>
 
-          {/* Lastname */}
           <div className="relative flex-1">
             <FaUserTie className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-xl" />
             <Input
@@ -113,7 +85,6 @@ const CreateAccount = () => {
           </div>
         </div>
 
-        {/* email */}
         <div className="relative w-full max-w-md md:max-w-3xl my-4">
           <MdOutlineEmail className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl" />
           <Input
@@ -125,7 +96,6 @@ const CreateAccount = () => {
           />
         </div>
 
-        {/* phone */}
         <div className="relative w-full max-w-md md:max-w-3xl my-4">
           <BsPhone className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl" />
           <Input
@@ -138,7 +108,6 @@ const CreateAccount = () => {
           />
         </div>
 
-        {/* password */}
         <div className="relative w-full max-w-md md:max-w-3xl my-2">
           <IoLockClosedOutline className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl" />
           <Input
@@ -162,7 +131,6 @@ const CreateAccount = () => {
         </div>
       </div>
 
-      {/* buttons */}
       <div className="flex flex-col md:flex-row w-full gap-4 items-center justify-center">
         <div onClick={handleRegisterWithGoogle}>
           <Google text="ثبت نام با گوگل " />
@@ -172,7 +140,6 @@ const CreateAccount = () => {
         </div>
       </div>
 
-      {/* Enter */}
       <p
         className="text-primary/80 font-semibold text-[16px] md:text-[18px] cursor-pointer"
         onClick={handleEnterAccount}
