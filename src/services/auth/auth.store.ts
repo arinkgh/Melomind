@@ -59,7 +59,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     try {
       const res = await authService.login({ mobile, password });
       if (res.success) {
-        set({ step: 9, mobile, otpToken: res.token ?? null, isNewUser: false });
+        set({ step: 8, mobile, otpToken: res.token ?? null, isNewUser: false });
         return true;
       } else {
         if (res.error_code === 1202) {
@@ -99,7 +99,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   sendOtp: async (mobile) => {
     try {
       const res = await authService.sendOtp(mobile);
-      if (res.success) return true;
+
+      if (res.success) {
+        console.log("OTP CODE:", res.otp); 
+        return true;
+      }
+
       console.log("sendOtp failed:", res.error_desc?.fa);
       return false;
     } catch (err) {
@@ -116,7 +121,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         forgot_password,
       });
       if (res.success) {
-        set({ step: 9, otpToken: res.token ?? null });
+        set({ step: 8, otpToken: res.token ?? null });
         return true;
       }
       console.log("verifyOtp failed:", res.error_desc?.fa);
