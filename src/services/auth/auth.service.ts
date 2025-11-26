@@ -3,7 +3,7 @@ import {
   LoginRequest,
   CheckUserResponse,
   RegisterRequest,
-  VerifyOTPRequest,
+  VerifyOTPRequest  ,
 } from "./auth.types";
 
 export const authService = {
@@ -28,7 +28,7 @@ export const authService = {
   },
 
   login: async (payload: LoginRequest) => {
-    const { data } = await axiosClient.post("/auth/login", payload);
+    const { data } = await axiosClient.post("/auth/login-pwd", payload);
     return data;
   },
 };
