@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { authService } from "./auth.service";
+import axios from "axios";
 
 interface AuthState {
   step: number;
@@ -78,18 +79,23 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   registerUser: async (payload) => {
     try {
       const res = await authService.register(payload);
+
       if (res.success) {
         set({ step: 2, mobile: payload.mobile, isNewUser: false });
+
         const sent = await get().sendOtp(payload.mobile);
+
         if (!sent) {
-          console.log("Failed to send OTP after register");
+          console.log(" ارسال OTP بعد از ثبت‌نام موفق نبود");
           return false;
         }
+
+        console.log(" ثبت‌نام و ارسال OTP با موفقیت انجام شد");
         return true;
-      } else {
-        console.log("Registration failed:", res.error_desc?.fa);
-        return false;
       }
+
+      console.log(" Registration failed:", res.error_desc?.fa);
+      return false;
     } catch (err) {
       console.error("Register API error:", err);
       return false;
@@ -101,11 +107,15 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const res = await authService.sendOtp(mobile);
 
       if (res.success) {
-        console.log("OTP CODE:", res.otp); 
+        console.log(
+          " OTP SENT:",
+          res.otp ?? res.data?.otp ?? " API did not return OTP field"
+        );
+
         return true;
       }
 
-      console.log("sendOtp failed:", res.error_desc?.fa);
+      console.log(" sendOtp failed:", res.error_desc?.fa);
       return false;
     } catch (err) {
       console.error("sendOtp API error:", err);
@@ -120,10 +130,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         code,
         forgot_password,
       });
+
       if (res.success) {
+        if (res.otp || res.data?.otp) {
+          console.log(" OTP (from verify):", res.otp ?? res.data?.otp);
+        }
+
         set({ step: 8, otpToken: res.token ?? null });
         return true;
       }
+
       console.log("verifyOtp failed:", res.error_desc?.fa);
       return false;
     } catch (err) {

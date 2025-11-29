@@ -6,12 +6,13 @@ import { LoginBtn } from "../common/Butttons/LoginBtn";
 import { useAuthStore } from "@/services/auth/auth.store";
 
 const VerificationCode = () => {
-  const { mobile, verifyOtp, sendOtp, isNewUser } = useAuthStore();
+  const { mobile, verifyOtp, sendOtp, isNewUser, set } = useAuthStore();
   const [otp, setOtp] = useState("");
   const [timeLeft, setTimeLeft] = useState(60);
   const [canResend, setCanResend] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  
   useEffect(() => {
     setTimeLeft(60);
     setCanResend(false);
@@ -43,8 +44,10 @@ const VerificationCode = () => {
       return;
     }
     setLoading(true);
+
     const ok = await verifyOtp(mobile, Number(otp), false);
     setLoading(false);
+
     if (!ok) {
       alert("کد اشتباه یا منقضی شده است");
       return;
@@ -58,8 +61,7 @@ const VerificationCode = () => {
       </h2>
 
       <p className="text-secondary font-semibold text-base md:text-[18px]">
-        کد تایید برای شماره <span className="text-primary/80">{mobile}</span>{" "}
-        ارسال شد
+        کد تایید برای شماره <span className="text-primary/80">{mobile}</span> ارسال شد
       </p>
 
       <VerificationCodeInput onComplete={(code) => setOtp(code)} />
@@ -79,9 +81,10 @@ const VerificationCode = () => {
         </div>
       </div>
 
+      {/* ورود با رمز عبور */}
       <p
         className="text-secondary font-semibold text-[16px] md:text-[18px] cursor-pointer"
-        onClick={() => {}}
+        onClick={() => useAuthStore.setState({ step: 3 })} 
       >
         ورود با رمز عبور
       </p>

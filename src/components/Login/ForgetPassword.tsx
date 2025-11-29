@@ -19,7 +19,7 @@ const ForgetPassword = () => {
   
       setError("");
       console.log("Valid input →", value);
-      alert("ورود موفقیت‌آمیز ✅ (این فقط تست است)");
+      alert("ورود موفقیت‌آمیز  (این فقط تست است)");
     };
   return (
     <div  className="w-full flex flex-col items-center justify-center">
