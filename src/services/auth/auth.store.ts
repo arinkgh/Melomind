@@ -37,6 +37,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   isNewUser: false,
 
   setMobile: (mobile) => set({ mobile }),
+  
 
   reset: () => set({ step: 1, mobile: "", otpToken: null, isNewUser: false }),
 
