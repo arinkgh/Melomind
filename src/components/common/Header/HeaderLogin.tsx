@@ -116,7 +116,7 @@ const HeaderLogin = () => {
 
     if (!savedToken || !savedUserRaw) return;
 
-    // اعتبارسنجی مقدار ذخیره شده
+    
     if (
       savedUserRaw === "undefined" ||
       savedUserRaw === "null" ||

@@ -321,7 +321,7 @@ import { create } from "zustand";
 import { authService } from "./auth.service";
 
 interface AuthState {
-  step: number; // 1=entrance, 2=otp verify, 7=create account, 8=logged in
+  step: number; 
   mobile: string;
   token: string | null;
   user: any | null;
