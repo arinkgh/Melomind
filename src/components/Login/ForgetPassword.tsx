@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
 import { Input } from "@/components/ui/input";
 import { MdOutlineEmail } from "react-icons/md";
-import { useAuthStore } from "@/services/auth/auth.store"; // adjust path if needed
+import { useAuthStore } from "@/services/auth/auth.store"; 
 
 const ForgetPassword = () => {
   const [value, setValue] = useState("");
