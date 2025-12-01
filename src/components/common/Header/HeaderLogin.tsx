@@ -95,7 +95,6 @@
 
 
 
-
 "use client";
 
 import React, { useEffect } from "react";
@@ -108,31 +107,13 @@ const HeaderLogin = () => {
   const router = useRouter();
   const { token, user, logout } = useAuthStore();
 
-  const hydrate = useAuthStore((state) => state.hydrate);
 
   useEffect(() => {
-    const savedToken = localStorage.getItem("token");
-    const savedUserRaw = localStorage.getItem("user");
+  console.log("Zustand store after mount:", useAuthStore.getState());
+}, []);
 
-    if (!savedToken || !savedUserRaw) return;
 
-    
-    if (
-      savedUserRaw === "undefined" ||
-      savedUserRaw === "null" ||
-      savedUserRaw.trim() === ""
-    ) {
-      console.warn("Invalid stored user value:", savedUserRaw);
-      return;
-    }
 
-    try {
-      const parsedUser = JSON.parse(savedUserRaw);
-      hydrate(savedToken, parsedUser);
-    } catch (e) {  
-      console.error("Failed to parse stored user", e);
-    }
-  }, [hydrate]);
 
   const handleReservationClick = () => {
     router.push("/reservation");
@@ -147,14 +128,7 @@ const HeaderLogin = () => {
     return (
       <div className="flex flex-row gap-4 items-center">
         <button
-          className="
-            flex items-center justify-center
-            bg-background text-secondary border-2 font-bold hover:bg-accent/60
-            gap-2 transition-all duration-100 ease-in-out
-            hover:scale-102
-            rounded-[110px]
-            py-2 px-3 cursor-pointer
-          "
+          className="flex items-center justify-center bg-background text-secondary border-2 font-bold hover:bg-accent/60 gap-2 transition-all duration-100 ease-in-out hover:scale-102 rounded-[110px] py-2 px-3 cursor-pointer"
           onClick={() => router.push("/profile")}
         >
           {user.name} {user.lastname}

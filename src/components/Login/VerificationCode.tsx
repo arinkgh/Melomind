@@ -47,6 +47,7 @@ const VerificationCode = () => {
 
     const ok = await verifyOtp(mobile, Number(otp), false);
     setLoading(false);
+   
 
     if (!ok) {
       alert("کد اشتباه یا منقضی شده است");
