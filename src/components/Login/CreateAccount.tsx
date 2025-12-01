@@ -7,42 +7,50 @@ import { BsPhone } from "react-icons/bs";
 import { FaUser, FaUserTie } from "react-icons/fa";
 import { ReserveNow } from "../common/Butttons/ReserveNow";
 import { Google } from "../common/Butttons/Google";
-import { useAuthStore } from "@/services/auth/auth.store";
+import { useAuthStore } from  "@/store/auth.store";
+import { authService } from "@/services/auth/auth.service";
 
 const CreateAccount = () => {
-  const [password, setPassword] = useState("");
+   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
 
+  const { setMobile, setStep } = useAuthStore();
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/[^0-9]/g, "");
     setPhone(value);
   };
 
-  const { registerUser, mobile: storeMobile } = useAuthStore();
-
   const handleRegister = async () => {
     const payload = {
-      mobile: phone || storeMobile,
+      mobile: phone,
       name,
       lastname,
       email,
       password,
     };
 
-    const ok = await registerUser(payload);
-    if (ok) {
-      console.log("registered -> moved to verification");
-    } else {
-      alert("ثبت‌نام ناموفق بود");
+    try {
+      const res = await authService.register(payload);
+      if (res.success) {
+        setMobile(phone);
+        setStep(2); // move to verification step
+      } else {
+        alert("ثبت‌نام ناموفق بود");
+      }
+    } catch (err) {
+      alert("خطا در ثبت‌نام");
+      console.error(err);
     }
   };
 
   const handleRegisterWithGoogle = () => {
     console.log("Register with Google clicked");
+    // Implement Google registration logic here
   };
 
   const handleEnterAccount = () => {

@@ -100,7 +100,7 @@
 import React, { useEffect } from "react";
 import { EnterBtn } from "../Butttons/EnterBtn";
 import { ReservationBn } from "../Butttons/ReservationBtn";
-import { useAuthStore } from "@/services/auth/auth.store";
+import { useAuthStore } from  "@/store/auth.store";
 import { useRouter } from "next/navigation";
 
 const HeaderLogin = () => {

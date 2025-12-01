@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { MdOutlineEmail } from "react-icons/md";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
-import { useAuthStore } from "@/services/auth/auth.store";
+import { useAuthStore } from "@/store/auth.store";
+import { authService } from "@/services/auth/auth.service";
 
 const Entrance: React.FC = () => {
-  const [value, setValue] = useState("");
+const [value, setValue] = useState("");
   const [error, setError] = useState("");
-  const { setMobile, checkMobile } = useAuthStore();
+
+  const { setMobile, setStep, setIsNewUser } = useAuthStore();
 
   const handleSubmit = async () => {
     const cleaned = value.replace(/[^0-9]/g, "");
@@ -19,13 +21,21 @@ const Entrance: React.FC = () => {
     }
 
     setError("");
-    setMobile(cleaned);
 
-    const ok = await checkMobile(cleaned);
-    if (!ok) {
-      setError(
-        "خطا در ارتباط با سرور یا ارسال اطلاعات. لطفا دوباره تلاش کنید."
-      );
+    try {
+      const res = await authService.checkUser(cleaned);
+
+      if (res.success && res.data.exists) {
+        setIsNewUser(false);
+        setStep(2);
+      } else {
+        setIsNewUser(true);
+        setStep(7);
+      }
+      setMobile(cleaned);
+    } catch (err) {
+      setError("خطا در ارتباط با سرور یا ارسال اطلاعات. لطفا دوباره تلاش کنید.");
+      console.error(err);
     }
   };
 

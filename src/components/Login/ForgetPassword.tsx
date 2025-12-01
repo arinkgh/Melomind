@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
 import { Input } from "@/components/ui/input";
 import { MdOutlineEmail } from "react-icons/md";
-import { useAuthStore } from "@/services/auth/auth.store"; 
+import { useAuthStore } from  "@/store/auth.store";
+import { authService } from "@/services/auth/auth.service";
 
 const ForgetPassword = () => {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
 
-  const sendOtp = useAuthStore((state) => state.sendOtp);
+  const { setStep } = useAuthStore();
 
   const handleSubmit = async () => {
     const isEmail =
@@ -22,11 +23,17 @@ const ForgetPassword = () => {
 
     setError("");
 
-    const success = await sendOtp(value);
-    if (success) {
-      useAuthStore.setState({ step: 5 });
-    } else {
+    try {
+      const res = await authService.sendOtp(value);
+
+      if (res.success) {
+        setStep(5); // move to otp verification for forgot password
+      } else {
+        setError("خطا در ارسال کد تایید. لطفا دوباره تلاش کنید.");
+      }
+    } catch (err) {
       setError("خطا در ارسال کد تایید. لطفا دوباره تلاش کنید.");
+      console.error(err);
     }
   };
 

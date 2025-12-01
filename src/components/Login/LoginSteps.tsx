@@ -30,7 +30,7 @@
 
 // export default LoginSteps
 
-import { useAuthStore } from "@/services/auth/auth.store";
+import { useAuthStore } from  "@/store/auth.store";
 import Entrance from "./Entrance";
 import VerificationCode from "./VerificationCode";
 import CreateAccount from "./CreateAccount";

@@ -3,16 +3,16 @@
 import React, { useState, useEffect } from "react";
 import VerificationCodeInput from "./VerificationCodeInput";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
-import { useAuthStore } from "@/services/auth/auth.store";
+import { useAuthStore } from  "@/store/auth.store";
+import { authService } from "@/services/auth/auth.service";
 
 const VerificationCode = () => {
-  const { mobile, verifyOtp, sendOtp, isNewUser, set } = useAuthStore();
+  const { mobile, setToken, setUser, setStep } = useAuthStore();
   const [otp, setOtp] = useState("");
   const [timeLeft, setTimeLeft] = useState(60);
   const [canResend, setCanResend] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  
   useEffect(() => {
     setTimeLeft(60);
     setCanResend(false);
@@ -20,8 +20,8 @@ const VerificationCode = () => {
 
   useEffect(() => {
     if (timeLeft > 0) {
-      const t = setTimeout(() => setTimeLeft((v) => v - 1), 1000);
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
+      return () => clearTimeout(timer);
     } else {
       setCanResend(true);
     }
@@ -29,12 +29,18 @@ const VerificationCode = () => {
 
   const handleResend = async () => {
     if (!canResend) return;
-    const ok = await sendOtp(mobile);
-    if (ok) {
-      setTimeLeft(60);
-      setCanResend(false);
-    } else {
+
+    try {
+      const res = await authService.sendOtp(mobile);
+      if (res.success) {
+        setTimeLeft(60);
+        setCanResend(false);
+      } else {
+        alert("خطا در ارسال مجدد کد");
+      }
+    } catch (err) {
       alert("خطا در ارسال مجدد کد");
+      console.error(err);
     }
   };
 
@@ -45,15 +51,27 @@ const VerificationCode = () => {
     }
     setLoading(true);
 
-    const ok = await verifyOtp(mobile, Number(otp), false);
-    setLoading(false);
-   
+    try {
+      const res = await authService.verifyOtp({
+        mobile,
+        code: Number(otp),
+        forgot_password: false,
+      });
 
-    if (!ok) {
-      alert("کد اشتباه یا منقضی شده است");
-      return;
+      if (res.success) {
+        setToken(res.token);
+        setUser(res.data.user);
+        setStep(8);
+      } else {
+        alert("کد اشتباه یا منقضی شده است");
+      }
+    } catch (err) {
+      alert("خطا در تایید کد");
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
-  };
+  };;
 
   return (
     <div className="w-full flex flex-col items-center justify-between gap-4 md:gap-6 text-center">

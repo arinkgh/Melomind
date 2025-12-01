@@ -1,74 +1,4 @@
-// export interface LoginRequest {
-//   mobile: string;
-//   password: string;
-// }
-
-// export interface LoginResponse {
-//   success: boolean;
-//   token?: string;
-//   message?: string;
-// }
-
-// export interface CheckUserResponse {
-//   success: boolean;
-//   data: {
-//     exists: boolean;
-//     code?: {
-//       [mobile: string]: {
-//         code: number;
-//         expiry: string;
-//       };
-//     };
-//   };
-// }
-
-// export interface RegisterRequest {
-//   token?: string;
-//   mobile: string;
-//   name: string;
-//   lastname: string;
-//   email?: string;
-//   password?: string;
-// }
-
-// export interface RegisterResponse {
-//   success: boolean;
-//   error_code?: number;
-//   error_desc?: {
-//     fa: string;
-//     en: string;
-//   };
-//   data?: {
-//     token?: string;
-//   };
-// }
-
-// export interface VerifyOTPRequest {
-//   mobile: string;
-//   code: number;
-//   forgot_password?: boolean;
-// }
-
-// export interface VerifyOTPResponse {
-//   success: boolean;
-//   token?: string;
-//   data?: {
-//     token?: string;
-//   };
-// }
-
-// export interface ApiResponse<T = any> {
-//   success?: boolean;
-//   data?: T;
-//   token?: string;
-//   exists?: boolean;
-// }
-
-
-
-
 // Response
-
 export interface ErrorDescription {
   fa: string;
   en: string;
@@ -87,6 +17,16 @@ export interface ApiSuccessResponse<T> {
 
 export interface ApiSuccessEmpty {
   success: true;
+}
+
+export interface LoginSuccessData {
+  user: string; 
+}
+
+export interface LoginSuccessResponse {
+  success: true;
+  token: string;
+  data: LoginSuccessData;
 }
 
 // Request
@@ -110,8 +50,13 @@ export interface VerifyOTPRequest {
 }
 
 // Response payloads
+export interface CheckUserData {
+  exists: boolean;
+}
 
-export type CheckUserResponse = ApiErrorResponse;
+export type CheckUserResponse =
+  | ApiSuccessResponse<CheckUserData>
+  | ApiErrorResponse;;
 
 export interface SendOTPData {
   code: Record<string, { code: number; expiry: string }>;
@@ -124,4 +69,4 @@ export type VerifyOTPResponse = ApiErrorResponse;
 
 export type RegisterResponse = ApiErrorResponse;
 
-export type LoginResponse = ApiErrorResponse;
+export type LoginResponse = LoginSuccessResponse | ApiErrorResponse;

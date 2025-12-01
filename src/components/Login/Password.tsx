@@ -3,26 +3,32 @@ import { Input } from "@/components/ui/input";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { BiHide, BiShow } from "react-icons/bi";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
-import { useAuthStore } from "@/services/auth/auth.store";
+import { useAuthStore } from  "@/store/auth.store";
+import { authService } from "@/services/auth/auth.service";
 
 const Password = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const mobile = useAuthStore((s) => s.mobile);
-  const tryLogin = useAuthStore((s) => s.tryLogin);
-  
+  const { mobile, setToken, setUser, setStep } = useAuthStore();
 
   const handleSubmit = async () => {
     setError("");
 
-    const ok = await tryLogin(mobile, password);
+    try {
+      const res = await authService.login({ mobile, password });
 
-    if (!ok) {
-      
-      setError("اطلاعات کاربری نادرست می‌باشد!");
-      return;
+      if (res.success) {
+        setToken(res.token);
+        setUser(res.data.user);
+        setStep(8);
+      } else {
+        setError("اطلاعات کاربری نادرست می‌باشد!");
+      }
+    } catch (err) {
+      setError("خطا در ارتباط با سرور. لطفا دوباره تلاش کنید.");
+      console.error(err);
     }
   };
 
