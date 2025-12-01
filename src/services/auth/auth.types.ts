@@ -1,4 +1,11 @@
 // Response
+
+export interface User {
+  name: string;
+  lastname: string;
+  mobile?: string;
+  email?: string;
+}
 export interface ErrorDescription {
   fa: string;
   en: string;
@@ -20,7 +27,7 @@ export interface ApiSuccessEmpty {
 }
 
 export interface LoginSuccessData {
-  user: string;
+  user: User;
 }
 
 export interface LoginSuccessResponse {
