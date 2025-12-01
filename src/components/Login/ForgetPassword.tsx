@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
 import { Input } from "@/components/ui/input";
 import { MdOutlineEmail } from "react-icons/md";
-import { useAuthStore } from  "@/store/auth.store";
+import { useAuthStore } from "@/store/auth.store";
 import { authService } from "@/services/auth/auth.service";
 
 const ForgetPassword = () => {
@@ -27,7 +27,7 @@ const ForgetPassword = () => {
       const res = await authService.sendOtp(value);
 
       if (res.success) {
-        setStep(5); // move to otp verification for forgot password
+        setStep(5);
       } else {
         setError("خطا در ارسال کد تایید. لطفا دوباره تلاش کنید.");
       }

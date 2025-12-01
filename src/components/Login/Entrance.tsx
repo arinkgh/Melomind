@@ -6,7 +6,7 @@ import { useAuthStore } from "@/store/auth.store";
 import { authService } from "@/services/auth/auth.service";
 
 const Entrance: React.FC = () => {
-const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
   const [error, setError] = useState("");
 
   const { setMobile, setStep, setIsNewUser } = useAuthStore();
@@ -34,7 +34,9 @@ const [value, setValue] = useState("");
       }
       setMobile(cleaned);
     } catch (err) {
-      setError("خطا در ارتباط با سرور یا ارسال اطلاعات. لطفا دوباره تلاش کنید.");
+      setError(
+        "خطا در ارتباط با سرور یا ارسال اطلاعات. لطفا دوباره تلاش کنید."
+      );
       console.error(err);
     }
   };

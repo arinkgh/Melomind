@@ -7,11 +7,11 @@ import { BsPhone } from "react-icons/bs";
 import { FaUser, FaUserTie } from "react-icons/fa";
 import { ReserveNow } from "../common/Butttons/ReserveNow";
 import { Google } from "../common/Butttons/Google";
-import { useAuthStore } from  "@/store/auth.store";
+import { useAuthStore } from "@/store/auth.store";
 import { authService } from "@/services/auth/auth.service";
 
 const CreateAccount = () => {
-   const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
@@ -38,7 +38,7 @@ const CreateAccount = () => {
       const res = await authService.register(payload);
       if (res.success) {
         setMobile(phone);
-        setStep(2); // move to verification step
+        setStep(2);
       } else {
         alert("ثبت‌نام ناموفق بود");
       }

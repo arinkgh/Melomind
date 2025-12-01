@@ -5,13 +5,13 @@ interface AuthState {
   step: number;
   mobile: string;
   token: string | null;
-  user: any | null;
+  user: string | null;
   isNewUser: boolean;
 
   setMobile: (mobile: string) => void;
   setStep: (step: number) => void;
   setToken: (token: string | null) => void;
-  setUser: (user: any | null) => void;
+  setUser: (user: string | null) => void;
   setIsNewUser: (bool: boolean) => void;
   logout: () => void;
 }

@@ -20,13 +20,23 @@ export interface ApiSuccessEmpty {
 }
 
 export interface LoginSuccessData {
-  user: string; 
+  user: string;
 }
 
 export interface LoginSuccessResponse {
   success: true;
   token: string;
   data: LoginSuccessData;
+}
+
+export interface VerifyOTPSuccessData {
+  user: string;
+}
+
+export interface VerifyOTPSuccessResponse {
+  success: true;
+  token: string;
+  data: VerifyOTPSuccessData;
 }
 
 // Request
@@ -46,7 +56,7 @@ export interface RegisterRequest {
 export interface VerifyOTPRequest {
   mobile: string;
   code: number;
-  exists: boolean;
+  forgot_password: boolean;
 }
 
 // Response payloads
@@ -56,7 +66,7 @@ export interface CheckUserData {
 
 export type CheckUserResponse =
   | ApiSuccessResponse<CheckUserData>
-  | ApiErrorResponse;;
+  | ApiErrorResponse;
 
 export interface SendOTPData {
   code: Record<string, { code: number; expiry: string }>;
@@ -65,7 +75,7 @@ export type SendOTPResponse =
   | ApiSuccessResponse<SendOTPData>
   | ApiErrorResponse;
 
-export type VerifyOTPResponse = ApiErrorResponse;
+export type VerifyOTPResponse = VerifyOTPSuccessResponse | ApiErrorResponse;
 
 export type RegisterResponse = ApiErrorResponse;
 

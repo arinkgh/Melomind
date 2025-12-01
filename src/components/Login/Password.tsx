@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { BiHide, BiShow } from "react-icons/bi";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
-import { useAuthStore } from  "@/store/auth.store";
+import { useAuthStore } from "@/store/auth.store";
 import { authService } from "@/services/auth/auth.service";
 
 const Password = () => {
@@ -34,7 +34,6 @@ const Password = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center text-center">
-      
       {/* title */}
       <div className="flex flex-col items-center gap-3 md:gap-5 mb-6 md:mb-8 px-4">
         <p className="text-secondary font-extrabold text-2xl md:text-4xl">
@@ -47,9 +46,7 @@ const Password = () => {
 
       {/* Error Message */}
       {error && (
-        <p className="text-red-500 text-sm md:text-[16px] mb-2">
-          {error}
-        </p>
+        <p className="text-red-500 text-sm md:text-[16px] mb-2">{error}</p>
       )}
 
       {/* Password input */}
@@ -76,7 +73,10 @@ const Password = () => {
       </div>
 
       {/* Login button */}
-      <div className="w-full max-w-3xl px-4 md:px-0 mt-3" onClick={handleSubmit}>
+      <div
+        className="w-full max-w-3xl px-4 md:px-0 mt-3"
+        onClick={handleSubmit}
+      >
         <LoginBtn text=" تایید " />
       </div>
 
@@ -84,14 +84,14 @@ const Password = () => {
       <div className="flex flex-row justify-around items-center gap-10 md:gap-16 mt-4 px-4 text-sm md:text-[16px]">
         <p
           className="text-secondary cursor-pointer"
-          onClick={() => useAuthStore.setState({ step: 4 })} 
+          onClick={() => useAuthStore.setState({ step: 4 })}
         >
           فراموشی رمز عبور
         </p>
 
         <p
           className="text-secondary cursor-pointer"
-         onClick={() => useAuthStore.setState({ step: 2 })} 
+          onClick={() => useAuthStore.setState({ step: 2 })}
         >
           ورود با رمز یکبار مصرف
         </p>
