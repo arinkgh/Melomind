@@ -1,42 +1,50 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface AuthState {
-  step: number;
-  mobile: string;
-  token: string | null;
-  user: string | null;
-  isNewUser: boolean;
+interface User {
+  name: string;
+  lastname: string;
+}
 
-  setMobile: (mobile: string) => void;
-  setStep: (step: number) => void;
+interface AuthState {
+  token: string | null;
+  user: User | null;
+  step: number;
   setToken: (token: string | null) => void;
-  setUser: (user: string | null) => void;
-  setIsNewUser: (bool: boolean) => void;
+  setUser: (user: User | null) => void;
+  setStep: (step: number) => void;
   logout: () => void;
+  mobile: string;
+  setMobile: (m: string) => void;
+  isNewUser: boolean;
+  setIsNewUser: (val: boolean) => void;
 }
 
 export const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      step: 1,
-      mobile: "",
       token: null,
       user: null,
+      step: 1,
+      mobile: "",
       isNewUser: false,
 
-      setMobile: (mobile) => set({ mobile }),
-      setStep: (step) => set({ step }),
       setToken: (token) => set({ token }),
       setUser: (user) => set({ user }),
-      setIsNewUser: (isNew) => set({ isNewUser: isNew }),
+      setStep: (step) => set({ step }),
+      setMobile: (mobile) => set({ mobile }),
+      setIsNewUser: (val) => set({ isNewUser: val }),
 
       logout: () =>
-        set({ step: 1, mobile: "", token: null, user: null, isNewUser: false }),
+        set({
+          token: null,
+          user: null,
+          step: 1,
+          mobile: "",
+        }),
     }),
     {
       name: "auth-storage",
-      partialize: (s) => ({ token: s.token, user: s.user }),
     }
   )
 );
