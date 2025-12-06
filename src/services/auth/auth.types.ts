@@ -33,17 +33,29 @@ export interface LoginSuccessData {
 export interface LoginSuccessResponse {
   success: true;
   token: string;
-  data: LoginSuccessData;
+  data: {
+    user: User;
+  };
 }
 
 export interface VerifyOTPSuccessData {
   user: string;
 }
 
-export interface VerifyOTPSuccessResponse {
+export interface VerifyOtpSuccessResponse {
   success: true;
-  token: string;
-  data: VerifyOTPSuccessData;
+  data: {
+    token: string;
+  };
+}
+
+export interface VerifyOtpErrorResponse {
+  success: false;
+  error_code: number;
+  error_desc: {
+    fa: string;
+    en: string;
+  };
 }
 
 // Request
@@ -82,8 +94,11 @@ export type SendOTPResponse =
   | ApiSuccessResponse<SendOTPData>
   | ApiErrorResponse;
 
-export type VerifyOTPResponse = VerifyOTPSuccessResponse | ApiErrorResponse;
+
+export type VerifyOtpResponse = VerifyOtpSuccessResponse | VerifyOtpErrorResponse;
 
 export type RegisterResponse = ApiErrorResponse;
 
 export type LoginResponse = LoginSuccessResponse | ApiErrorResponse;
+
+export type LogoutResponse = ApiSuccessEmpty | ApiErrorResponse;

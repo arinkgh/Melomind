@@ -5,9 +5,10 @@ import {
   VerifyOTPRequest,
   CheckUserResponse,
   SendOTPResponse,
-  VerifyOTPResponse,
   RegisterResponse,
   LoginResponse,
+  LogoutResponse,
+  VerifyOtpResponse,
 } from "./auth.types";
 
 export const authService = {
@@ -21,7 +22,7 @@ export const authService = {
     return data;
   },
 
-  verifyOtp: async (payload: VerifyOTPRequest): Promise<VerifyOTPResponse> => {
+  verifyOtp: async (payload: VerifyOTPRequest): Promise<VerifyOtpResponse> => {
     const { data } = await axiosClient.post("/auth/verify-otp", payload);
     return data;
   },
@@ -33,6 +34,11 @@ export const authService = {
 
   login: async (payload: LoginRequest): Promise<LoginResponse> => {
     const { data } = await axiosClient.post("/auth/login-pwd", payload);
+    return data;
+  },
+
+  logout: async (token: string): Promise<LogoutResponse> => {
+    const { data } = await axiosClient.post("/auth/logout", { token });
     return data;
   },
 };
