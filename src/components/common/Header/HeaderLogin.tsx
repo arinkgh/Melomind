@@ -1,22 +1,36 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import { EnterBtn } from "../Butttons/EnterBtn";
 import { ReservationBn } from "../Butttons/ReservationBtn";
 import { useAuthStore } from "@/store/auth.store";
 import { useRouter } from "next/navigation";
 
+
 const HeaderLogin = () => {
   const router = useRouter();
 
-  // const hydrated = useAuthStore((s) => s.hydrated);
-  // const token = useAuthStore((s) => s.token);
-  // const user = useAuthStore((s) => s.user);
-  // const logout = useAuthStore((s) => s.logout);
+  // const { hydrated, token, user, logout } = useAuthStore();
 
-  const { hydrated, token, user, logout } = useAuthStore();
+  const hydrated = useAuthStore((state) => state.hydrated);
+  const token = useAuthStore((state) => state.token);
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
 
-  if (!hydrated) return <div>!?</div>;
+  const authData = useMemo(
+    () => ({ hydrated, token, user, logout }),
+    [hydrated, token, user, logout]
+  );
+
+  if (!authData.hydrated) return null;
+
+
+//   useEffect(() => {
+//   console.log("Auth changed", { hydrated, token, user });
+// }, [hydrated, token, user]);
+
+
+//   if (!hydrated) return null;
 
   const handleLogout = async () => {
     await logout();

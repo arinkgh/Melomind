@@ -5,7 +5,7 @@ import VerificationCodeInput from "./VerificationCodeInput";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
 import { useAuthStore } from "@/store/auth.store";
 import { authService } from "@/services/auth/auth.service";
-import {jwtDecode }from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 interface JwtPayload {
   name: string;
@@ -20,8 +20,6 @@ const VerificationCode = () => {
   const [timeLeft, setTimeLeft] = useState(60);
   const [canResend, setCanResend] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  
 
   useEffect(() => {
     setTimeLeft(60);
@@ -55,52 +53,51 @@ const VerificationCode = () => {
   };
 
   const handleConfirm = async () => {
-  if (otp.length !== 6) {
-    alert("کد باید ۶ رقمی باشد");
-    return;
-  }
-  setLoading(true);
+    if (otp.length !== 6) {
+      alert("کد باید ۶ رقمی باشد");
+      return;
+    }
+    setLoading(true);
 
-  try {
-    const res = await authService.verifyOtp({
-      mobile,
-      code: Number(otp),
-      forgot_password: false,
-    });
+    try {
+      const res = await authService.verifyOtp({
+        mobile,
+        code: Number(otp),
+        forgot_password: false,
+      });
 
-    if (res.success) {
-      setToken(res.data.token);
-      try {
-        const token = res.data.token;
-        if (typeof token === "string") {
-          const decoded = jwtDecode<JwtPayload>(token);
-          setUser({
-            name: decoded.name,
-            lastname: decoded.lastname,
-            mobile: decoded.mobile,
-            email: decoded.email,
-          });
-        } else {
-          console.error("Token is not a string!", token);
+      if (res.success) {
+        setToken(res.data.token);
+        try {
+          const token = res.data.token;
+          if (typeof token === "string") {
+            const decoded = jwtDecode<JwtPayload>(token);
+            setUser({
+              name: decoded.name,
+              lastname: decoded.lastname,
+              mobile: decoded.mobile,
+              email: decoded.email,
+            });
+          } else {
+            console.error("Token is not a string!", token);
+            setUser(null);
+          }
+        } catch (error) {
+          console.error("Error decoding token:", error);
           setUser(null);
         }
-      } catch (error) {
-        console.error("Error decoding token:", error);
-        setUser(null);
+
+        setStep(8);
+      } else {
+        alert(res.error_desc?.fa || "کد اشتباه یا منقضی شده است");
       }
-
-      setStep(8);
-    } else {
-      alert(res.error_desc?.fa || "کد اشتباه یا منقضی شده است");
+    } catch (err) {
+      alert("خطا در تایید کد");
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    alert("خطا در تایید کد");
-    console.error(err);
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   return (
     <div className="w-full flex flex-col items-center justify-between gap-4 md:gap-6 text-center">

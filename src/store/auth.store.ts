@@ -26,6 +26,8 @@ interface AuthState {
   setMobile: (mobile: string) => void;
   setIsNewUser: (val: boolean) => void;
 
+  setHydrated: () => void;
+
   logout: () => void;
 }
 
@@ -44,6 +46,8 @@ export const useAuthStore = create<AuthState>()(
       setStep: (step) => set({ step }),
       setMobile: (mobile) => set({ mobile }),
       setIsNewUser: (val) => set({ isNewUser: val }),
+
+      setHydrated: () => set({ hydrated: true }),
 
       logout: async () => {
         const token = get().token;
@@ -64,12 +68,12 @@ export const useAuthStore = create<AuthState>()(
     {
       name: "auth-storage",
 
-     onRehydrateStorage: () => {
-        console.log("rehydrating...");
-        return () => {
-          console.log("rehydrated!");
-          useAuthStore.setState({ hydrated: true });
-        };
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+
+        if (typeof state.setHydrated === "function") {
+          state.setHydrated();
+        }
       },
     }
   )
