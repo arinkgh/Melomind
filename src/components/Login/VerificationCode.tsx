@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -16,10 +17,14 @@ interface JwtPayload {
 
 const VerificationCode = () => {
   const { mobile, setToken, setUser, setStep } = useAuthStore();
+
   const [otp, setOtp] = useState("");
   const [timeLeft, setTimeLeft] = useState(60);
   const [canResend, setCanResend] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const [userExists, setUserExists] = useState<boolean | null>(null);
+  const [checkingUser, setCheckingUser] = useState(false);
 
   useEffect(() => {
     setTimeLeft(60);
@@ -34,6 +39,33 @@ const VerificationCode = () => {
       setCanResend(true);
     }
   }, [timeLeft]);
+
+  useEffect(() => {
+    if (!mobile) {
+      setUserExists(null);
+      return;
+    }
+
+    async function checkUserExists() {
+      setCheckingUser(true);
+      try {
+        const res = await authService.checkUser(mobile);
+        if (res.success) {
+          setUserExists(res.data.exists);
+        } else {
+          setUserExists(false); 
+          console.error("Check user error:", res);
+        }
+      } catch (error) {
+        setUserExists(false);
+        console.error("Check user API call failed:", error);
+      } finally {
+        setCheckingUser(false);
+      }
+    }
+
+    checkUserExists();
+  }, [mobile]);
 
   const handleResend = async () => {
     if (!canResend) return;
@@ -57,20 +89,27 @@ const VerificationCode = () => {
       alert("کد باید ۶ رقمی باشد");
       return;
     }
+
+    if (userExists === null) {
+      alert("لطفا چند لحظه صبر کنید...");
+      return;
+    }
+
     setLoading(true);
 
     try {
       const res = await authService.verifyOtp({
         mobile,
         code: Number(otp),
-        forgot_password: false,
+        exists: userExists,
       });
 
       if (res.success) {
-        setToken(res.data.token);
-        try {
-          const token = res.data.token;
-          if (typeof token === "string") {
+        const token = res.data.token;
+
+        if (typeof token === "string") {
+          setToken(token);
+          try {
             const decoded = jwtDecode<JwtPayload>(token);
             setUser({
               name: decoded.name,
@@ -78,16 +117,17 @@ const VerificationCode = () => {
               mobile: decoded.mobile,
               email: decoded.email,
             });
-          } else {
-            console.error("Token is not a string!", token);
+          } catch (error) {
+            console.error("Error decoding token:", error);
             setUser(null);
           }
-        } catch (error) {
-          console.error("Error decoding token:", error);
+
+          setStep(8);
+        } else {
+          console.error("Token is not a string!", token);
+          alert("خطا در دریافت توکن");
           setUser(null);
         }
-
-        setStep(8);
       } else {
         alert(res.error_desc?.fa || "کد اشتباه یا منقضی شده است");
       }
@@ -106,8 +146,8 @@ const VerificationCode = () => {
       </h2>
 
       <p className="text-secondary font-semibold text-base md:text-[18px]">
-        کد تایید برای شماره <span className="text-primary/80">{mobile}</span>{" "}
-        ارسال شد
+        کد تایید برای شماره{" "}
+        <span className="text-primary/80">{mobile}</span> ارسال شد
       </p>
 
       <VerificationCodeInput onComplete={(code) => setOtp(code)} />
@@ -134,6 +174,10 @@ const VerificationCode = () => {
       >
         ورود با رمز عبور
       </p>
+
+      {checkingUser && (
+        <p className="text-sm text-gray-500 mt-2">در حال بررسی وجود کاربر...</p>
+      )}
     </div>
   );
 };

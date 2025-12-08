@@ -74,7 +74,7 @@ export interface RegisterRequest {
 export interface VerifyOTPRequest {
   mobile: string;
   code: number;
-  forgot_password: boolean;
+  exists: boolean;
 }
 
 // Response payloads
