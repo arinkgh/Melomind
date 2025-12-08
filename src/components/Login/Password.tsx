@@ -5,6 +5,7 @@ import { BiHide, BiShow } from "react-icons/bi";
 import { LoginBtn } from "../common/Butttons/LoginBtn";
 import { useAuthStore } from "@/store/auth.store";
 import { authService } from "@/services/auth/auth.service";
+import { jwtDecode, JwtPayload } from "jwt-decode";
 
 const Password = () => {
   const [password, setPassword] = useState("");
@@ -13,22 +14,52 @@ const Password = () => {
 
   const { mobile, setToken, setUser, setStep } = useAuthStore();
 
+  interface JwtPayload {
+    name?: string;
+    lastname?: string;
+    mobile?: string;
+    email?: string;
+  }
+
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async () => {
     setError("");
+    setLoading(true);
 
     try {
       const res = await authService.login({ mobile, password });
+      console.log("Login response:", res);
 
       if (res.success) {
-        setToken(res.token);
-        setUser(res.data.user);
-        setStep(8);
+        const token = res.token ?? res.data?.token;
+
+        if (typeof token === "string") {
+          setToken(token);
+          try {
+            const decoded = jwtDecode<JwtPayload>(token);
+            setUser({
+              name: decoded.name ?? "",
+              lastname: decoded.lastname ?? "",
+              mobile: decoded.mobile,
+              email: decoded.email,
+            });
+          } catch (error) {
+            console.error("Error decoding token:", error);
+            setUser(null);
+          }
+          setStep(8);
+        } else {
+          setError("خطا در دریافت توکن");
+        }
       } else {
         setError("اطلاعات کاربری نادرست می‌باشد!");
       }
     } catch (err) {
       setError("خطا در ارتباط با سرور. لطفا دوباره تلاش کنید.");
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
