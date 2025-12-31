@@ -39,15 +39,13 @@ import { ServiceItem } from "@/services/reserve/reserve.types";
 
 const MeetTypeCard: React.FC = () => {
   const router = useRouter();
-  const { items, fetchServices, loading, error, selectItem, selectedMeeting } =
-    useReserveStore((s) => ({
-      items: s.items,
-      fetchServices: s.fetchServices,
-      loading: s.loading,
-      error: s.error,
-      selectItem: s.selectItem,
-      selectedMeeting: s.selectedMeeting,
-    }));
+const items = useReserveStore((s) => s.items);
+const fetchServices = useReserveStore((s) => s.fetchServices);
+const loading = useReserveStore((s) => s.loading);
+const error = useReserveStore((s) => s.error);
+const selectItem = useReserveStore((s) => s.selectItem);
+const selectedMeeting = useReserveStore((s) => s.selectedMeeting);
+
 
   useEffect(() => {
     fetchServices();

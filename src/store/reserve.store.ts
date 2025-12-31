@@ -7,7 +7,7 @@ import { reserveService } from "@/services/reserve/reserve.service";
 
 type Nullable<T> = T | null;
 
-interface ReserveState {
+export interface ReserveState {
   items: ServiceItem[];         
   loading: boolean;
   error?: string | null;
