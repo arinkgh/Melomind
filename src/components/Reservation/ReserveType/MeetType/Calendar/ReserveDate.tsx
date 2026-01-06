@@ -6,11 +6,14 @@ import ReserveTitle from "@/components/common/ReserveTitle/ReserveTitle";
 import Time from "./Time";
 import CalendarBox from "./CalendarBox";
 import { useRouter } from "next/navigation";
+import { useReserveStore } from "@/store/reserve.store";
 
 const ReserveDate = () => {
   const router = useRouter();
+    const addReservation = useReserveStore((s) => s.addReservation);
 
   const handlenextpageClick = () => {
+    addReservation();
     router.push("/reservation/reservetype/meet-type/date/shop");
   };
 

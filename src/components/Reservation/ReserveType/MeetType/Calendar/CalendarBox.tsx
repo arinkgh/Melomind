@@ -1,17 +1,26 @@
 "use client";
-import React from "react";
+import { DayPicker } from "react-day-picker/persian";
+import { useReserveStore } from "@/store/reserve.store";
+import React, { useState } from "react";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react";
 import { DayButton, getDefaultClassNames } from "react-day-picker";
-import { DayPicker } from "react-day-picker/persian";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const CalendarBox = () => {
+  const setStoreDate = useReserveStore((s) => s.setDate);
   const [date, setDate] = React.useState<Date | undefined>(new Date());
+
+  const onSelect = (d?: Date) => {
+    setDate(d);
+    if (d) {
+      setStoreDate(d.toLocaleDateString("fa-IR"));
+    }
+  };
 
   return (
     <div
@@ -25,15 +34,13 @@ const CalendarBox = () => {
         mode="single"
         defaultMonth={date}
         selected={date}
-        onSelect={setDate}
+        onSelect={onSelect}
       />
     </div>
   );
 };
 
 export default CalendarBox;
-
-// Calendar Component
 
 function Calendar({
   className,
@@ -53,7 +60,10 @@ function Calendar({
     <div className="flex flex-col items-center justify-center">
       <DayPicker
         showOutsideDays={showOutsideDays}
-        className={cn("bg-background group/calendar w-full sm:w-auto", className)}
+        className={cn(
+          "bg-background group/calendar w-full sm:w-auto",
+          className
+        )}
         captionLayout={captionLayout}
         formatters={{
           formatMonthDropdown: (date) =>
@@ -99,12 +109,19 @@ function Calendar({
             defaultClassNames.day
           ),
           today: cn("bg-green-100 rounded-md", defaultClassNames.today),
-          disabled: cn("opacity-50 cursor-not-allowed", defaultClassNames.disabled),
+          disabled: cn(
+            "opacity-50 cursor-not-allowed",
+            defaultClassNames.disabled
+          ),
           ...classNames,
         }}
         components={{
           Root: ({ className, rootRef, ...props }) => (
-            <div ref={rootRef} className={cn("relative", className)} {...props} />
+            <div
+              ref={rootRef}
+              className={cn("relative", className)}
+              {...props}
+            />
           ),
           Chevron: ({ orientation, className, ...props }) =>
             orientation === "left" ? (
