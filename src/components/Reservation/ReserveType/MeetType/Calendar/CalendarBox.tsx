@@ -135,7 +135,7 @@ function Calendar({
                 {...props}
               />
             ),
-          DayButton: CalendarDayButton, // ✅ now defined below
+          DayButton: CalendarDayButton, 
           ...components,
         }}
         {...props}

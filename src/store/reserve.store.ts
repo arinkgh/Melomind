@@ -90,7 +90,6 @@ import { reserveService } from "@/services/reserve/reserve.service";
 
 type Nullable<T> = T | null;
 
-
 export interface ReserveState {
   // services
   items: ServiceItem[];
@@ -204,10 +203,14 @@ export const useReserveStore = create<ReserveState>()(
               group: selectedGroup,
               type: selectedType,
               meeting: selectedMeeting,
-              service: selectedMeeting,
+              // service: selectedMeeting,
               date: selectedDate,
               time: selectedTime,
-              price: selectedMeeting.price,
+              // price: selectedMeeting.price,
+              price:
+                selectedGroup.price +
+                selectedType.price +
+                selectedMeeting.price,
             },
           ],
           selectedDate: null,
