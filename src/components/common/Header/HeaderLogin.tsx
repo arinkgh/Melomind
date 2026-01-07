@@ -37,7 +37,7 @@ const HeaderLogin = () => {
         <div className="flex flex-row gap-2 items-center justify-center">
           <button
             className="flex items-center justify-center bg-background text-secondary border-2 font-bold hover:bg-accent/60 gap-2 transition-all duration-100 ease-in-out hover:scale-102 rounded-[110px] py-2 px-3 md:py-2 md:px-2 lg:py-3.5 lg:px-3 cursor-pointer"
-            onClick={() => router.push("/profile")}
+            onClick={() => router.push("/admin/dashboard")}
           >
             {user.name} {user.lastname}
           </button>
