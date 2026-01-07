@@ -21,3 +21,16 @@ export const reserveService = {
     return res.data.data;
   },
 };
+
+
+interface AddReservePayload {
+  token: string;
+  session: string;
+  services: string[];
+}
+
+export const reserveApi = {
+  addReserve: (payload: AddReservePayload) =>
+    client.post("/user/reserves/add", payload),
+};
+
